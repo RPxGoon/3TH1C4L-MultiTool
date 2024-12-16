@@ -6,7 +6,7 @@ init(autoreset=True)
 
 
 from scripts.show_my_ip import run as show_my_ip
-from scripts.ip_info_lookup import run as ip_info_lookup
+from scripts.ip_info import run as ip_info
 from scripts.ip_pinger import run_ip_pinger
 from scripts.token_checker import check_token  
 
@@ -71,10 +71,10 @@ def print_menu():
     print(Fore.LIGHTBLACK_EX + "=" * 80)
 
     print(f"{Fore.RED}[01] Show My IP".ljust(26) +
-          f"{Fore.RED}[04] Token Checker".center(26) +
-          f"{Fore.RED}[07] Exit".rjust(26))
+          f"{Fore.RED}  [04] Token Checker".center(26) +
+          f"{Fore.RED}[07] Exit".rjust(26)) 
 
-    print(f"{Fore.RED}[02] IP Info Lookup".ljust(26) +
+    print(f"{Fore.RED}[02] IP Info".ljust(26) +
           f"{Fore.RED}[05] Server Nuker".center(26) +
           f"{Fore.RED}[08] Coming Soon...".rjust(26))
 
@@ -96,12 +96,12 @@ def run_tool():
         if choice == '1':
             show_my_ip()
         elif choice == '2':
-            ip_info_lookup()
+            ip_info()
         elif choice == '3':
             run_ip_pinger()
         elif choice == '4':
             
-            token_discord = input(f"{Fore.LIGHTYELLOW_EX}Enter your Discord token: {Fore.RESET}")
+            token_discord = input(f"{Fore.LIGHTYELLOW_EX}Enter Discord token: {Fore.RESET}")
             check_token(token_discord)  
         elif choice == '7':
             print(f"{Fore.LIGHTGREEN_EX}Exiting... Goodbye!")
