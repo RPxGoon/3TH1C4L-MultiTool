@@ -1,6 +1,8 @@
 # [3TH1C4L] OSINT/Discord Multi-Tool
 ![3TH1C4L Logo](https://github.com/user-attachments/assets/ed7cdf18-e395-42b9-9d37-9a931834144f)
 
+---
+
 ## A VERY NEW, Work In Progress OSINT / Discord Multi-Tool
 
 **DISCLAIMER**  
