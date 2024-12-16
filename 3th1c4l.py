@@ -9,9 +9,13 @@ init(autoreset=True)
 from scripts.show_my_ip import run as show_my_ip
 from scripts.ip_info_lookup import run as ip_info_lookup
 from scripts.ip_pinger import run_ip_pinger
+from scripts.token_checker import check_token  # Import the token checker
 
 # Define a smooth gradient function for text
 def smooth_gradient_print(text, start_color, end_color, steps):
+    if steps == 0:  # Prevent division by zero for empty lines
+        print(text)
+        return
     r_start, g_start, b_start = start_color
     r_end, g_end, b_end = end_color
     for i, char in enumerate(text):
@@ -22,58 +26,83 @@ def smooth_gradient_print(text, start_color, end_color, steps):
         print(f"{color}{char}", end="")
     print()
 
-# Define the colors (from red to purple)
+# Center text helper function
+def center_text(text, width=80):
+    return text.center(width)
+
+# Define the colors (red to purple gradient)
 start_color = (255, 0, 0)
 end_color = (128, 0, 128)
 
+# Function to print the ASCII logo
 def print_ascii_logo():
     logo = r"""
                    )                      (     
      )   *   )  ( /(     )    (        )  )\ )  
-  ( /( ` )  /(  )\()) ( /(    )\    ( /( (()/(  
-  )\()) ( )(_))((_)\  )\()) (((_)   )\()) /(_)) 
- ((_)\ (_(_())  _((_)((_)\  )\___  ((_)\ (_))   
+  ( /(  )  /(  )\()) ( /(    )\    ( /( (()/(  
+  )\()) ( )(_))((_\  )\()) (((_)   )\()) /(_)) 
+ ((_\ (_(_())  _((_)((_\  )\___  ((_\ (_))   
 |__ (_)|_   _| | || | / (_)((/ __|| | (_)| |    
  |_ \    | |   | __ | | |   | (__ |_  _| | |__  
 |___/    |_|   |_||_| |_|    \___|  |_|  |____| 
                                                
-                [3TH1C4L x RPxGoon]
-	 Simple OSINT / Discord Multi-tool
-			     
+          [3TH1C4L x RPxGoon]
+        Simple OSINT / Discord Multi-tool
     """
-    smooth_gradient_print(logo, start_color, end_color, len(logo))
+    for line in logo.splitlines():
+        smooth_gradient_print(center_text(line), start_color, end_color, len(line))
 
+# Function to print the main menu
+def print_menu():
+    os.system('cls' if os.name == 'nt' else 'clear')
+    print_ascii_logo()
+
+    print(Fore.LIGHTBLACK_EX + "=" * 80)
+    print(f"{Fore.CYAN}{'OSINT'.center(26)}|{'DISCORD'.center(26)}|{'OTHER'.center(26)}")
+    print(Fore.LIGHTBLACK_EX + "=" * 80)
+
+    print(f"{Fore.RED}[01] Show My IP".ljust(26) +
+          f"{Fore.RED}[04] Token Checker".center(26) +
+          f"{Fore.RED}[07] Exit".rjust(26))
+
+    print(f"{Fore.RED}[02] IP Info Lookup".ljust(26) +
+          f"{Fore.RED}[05] Server Nuker".center(26) +
+          f"{Fore.RED}[08] Coming Soon...".rjust(26))
+
+    print(f"{Fore.RED}[03] IP Pinger".ljust(26) +
+          f"{Fore.RED}[06] Mass DM Tool".center(26) +
+          f"{Fore.RED}[09] Coming Soon...".rjust(26))
+
+    print(Fore.LIGHTBLACK_EX + "=" * 80)
+    print()
+
+# Main function to run the tool
 def run_tool():
     while True:
-        # Print the logo with gradient
-        print_ascii_logo()
+        print_menu()
 
-        # Show menu with gradient text
-        print(f"{Fore.GREEN}Select an option:")
-
-        # Menu options (color gradient will be applied)
-        print(f"{Fore.RED}1.) Show My IP Address")
-        print(f"{Fore.RED}2.) IP Info Lookup")
-        print(f"{Fore.RED}3.) IP Pinger")
-        print(f"{Fore.RED}4.) Exit")
-        
-        # Get the user's choice (input prompt stays green)
-        choice = input(f"{Fore.GREEN}Enter Your Choice: ")
+        # Linux terminal-like prompt
+        choice = input(f"{Fore.LIGHTGREEN_EX}3TH1C4L > {Fore.RESET}")
 
         if choice == '1':
-            show_my_ip()  # Calls the run() function from the show_my_ip module
+            show_my_ip()
         elif choice == '2':
-            ip_info_lookup()  # Calls the run() function from the ip_info_lookup module
-        elif choice == '3':  
-            run_ip_pinger()  # Calls the run_ip_pinger() function from the ip_pinger module
+            ip_info_lookup()
+        elif choice == '3':
+            run_ip_pinger()
         elif choice == '4':
-            print(f"{Fore.GREEN}Exiting... Goodbye!")  # Exit message with gradient color
+            # Token checker option
+            token_discord = input(f"{Fore.LIGHTYELLOW_EX}Enter your Discord token: {Fore.RESET}")
+            check_token(token_discord)  # Call the token checker
+        elif choice == '7':
+            print(f"{Fore.LIGHTGREEN_EX}Exiting... Goodbye!")
             break
         else:
-            print(f"{Fore.RED}Invalid choice. Please select a valid option.")
+            print(f"{Fore.LIGHTRED_EX}Invalid choice. Please select a valid option.")
 
-        input(f"{Fore.GREEN}Press Enter to continue...")  # Prompt for continue (input stays green)
-        os.system('cls' if os.name == 'nt' else 'clear')  # Clear the screen after selection
+        input(f"{Fore.LIGHTBLACK_EX}Press Enter to continue...")
+        os.system('cls' if os.name == 'nt' else 'clear')
 
+# Run the tool if this script is executed directly
 if __name__ == "__main__":
     run_tool()
