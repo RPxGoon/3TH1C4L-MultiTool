@@ -2,18 +2,17 @@ import os
 import sys
 from colorama import init, Fore
 
-# Initialize colorama
 init(autoreset=True)
 
-# Import the Show My IP, IP Info Lookup, and IP Pinger functions
+
 from scripts.show_my_ip import run as show_my_ip
 from scripts.ip_info_lookup import run as ip_info_lookup
 from scripts.ip_pinger import run_ip_pinger
-from scripts.token_checker import check_token  # Import the token checker
+from scripts.token_checker import check_token  
 
-# Define a smooth gradient function for text
+
 def smooth_gradient_print(text, start_color, end_color, steps):
-    if steps == 0:  # Prevent division by zero for empty lines
+    if steps == 0:  
         print(text)
         return
     r_start, g_start, b_start = start_color
@@ -26,33 +25,43 @@ def smooth_gradient_print(text, start_color, end_color, steps):
         print(f"{color}{char}", end="")
     print()
 
-# Center text helper function
+
 def center_text(text, width=80):
     return text.center(width)
 
-# Define the colors (red to purple gradient)
+
 start_color = (255, 0, 0)
 end_color = (128, 0, 128)
 
-# Function to print the ASCII logo
+
 def print_ascii_logo():
     logo = r"""
-                   )                      (     
-     )   *   )  ( /(     )    (        )  )\ )  
-  ( /(  )  /(  )\()) ( /(    )\    ( /( (()/(  
-  )\()) ( )(_))((_\  )\()) (((_)   )\()) /(_)) 
- ((_\ (_(_())  _((_)((_\  )\___  ((_\ (_))   
-|__ (_)|_   _| | || | / (_)((/ __|| | (_)| |    
- |_ \    | |   | __ | | |   | (__ |_  _| | |__  
-|___/    |_|   |_||_| |_|    \___|  |_|  |____| 
-                                               
-          [3TH1C4L x RPxGoon]
-        Simple OSINT / Discord Multi-tool
+
+
+
+
+/* ++------------------------------------------------------------------++ */
+/* ++------------------------------------------------------------------++ */
+/* ||    ▓█████ ▄▄▄█████▓ ██░ ██  ▐██▌  ▄████▄   ▄▄▄       ██▓         || */
+/* ||    ▓█   ▀ ▓  ██▒ ▓▒▓██░ ██▒ ▐██▌ ▒██▀ ▀█  ▒████▄    ▓██▒         || */
+/* ||    ▒███   ▒ ▓██░ ▒░▒██▀▀██░ ▐██▌ ▒▓█    ▄ ▒██  ▀█▄  ▒██░         || */
+/* ||    ▒▓█  ▄ ░ ▓██▓ ░ ░▓█ ░██  ▓██▒ ▒▓▓▄ ▄██▒░██▄▄▄▄██ ▒██░         || */
+/* ||    ░▒████▒  ▒██▒ ░ ░▓█▒░██▓ ▒▄▄  ▒ ▓███▀ ░ ▓█   ▓██▒░██████▒     || */
+/* ||    ░░ ▒░ ░  ▒ ░░    ▒ ░░▒░▒ ░▀▀▒ ░ ░▒ ▒  ░ ▒▒   ▓▒█░░ ▒░▓  ░     || */
+/* ||     ░ ░  ░    ░     ▒ ░▒░ ░ ░  ░   ░  ▒     ▒   ▒▒ ░░ ░ ▒  ░     || */
+/* ||       ░     ░       ░  ░░ ░    ░ ░          ░   ▒     ░ ░        || */
+/* ||       ░  ░          ░  ░  ░ ░    ░ ░            ░  ░    ░  ░     || */
+/* ||                                  ░                               || */
+/* ++------------------------------------------------------------------++ */
+/* ++------------------------------------------------------------------++ */
+
+Simple OSINT / Discord Multi-tool
+[https://github.com/RPxGoon/3TH1C4L-MultiTool]
     """
     for line in logo.splitlines():
         smooth_gradient_print(center_text(line), start_color, end_color, len(line))
 
-# Function to print the main menu
+
 def print_menu():
     os.system('cls' if os.name == 'nt' else 'clear')
     print_ascii_logo()
@@ -76,12 +85,12 @@ def print_menu():
     print(Fore.LIGHTBLACK_EX + "=" * 80)
     print()
 
-# Main function to run the tool
+
 def run_tool():
     while True:
         print_menu()
 
-        # Linux terminal-like prompt
+        
         choice = input(f"{Fore.LIGHTGREEN_EX}3TH1C4L > {Fore.RESET}")
 
         if choice == '1':
@@ -91,9 +100,9 @@ def run_tool():
         elif choice == '3':
             run_ip_pinger()
         elif choice == '4':
-            # Token checker option
+            
             token_discord = input(f"{Fore.LIGHTYELLOW_EX}Enter your Discord token: {Fore.RESET}")
-            check_token(token_discord)  # Call the token checker
+            check_token(token_discord)  
         elif choice == '7':
             print(f"{Fore.LIGHTGREEN_EX}Exiting... Goodbye!")
             break
@@ -103,6 +112,6 @@ def run_tool():
         input(f"{Fore.LIGHTBLACK_EX}Press Enter to continue...")
         os.system('cls' if os.name == 'nt' else 'clear')
 
-# Run the tool if this script is executed directly
+
 if __name__ == "__main__":
     run_tool()
