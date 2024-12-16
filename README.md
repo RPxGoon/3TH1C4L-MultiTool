@@ -4,8 +4,8 @@
 A VERY NEW, Work In Progress OSINT / Discord Multi-Tool
 -
 -- This Tool is Free for Anyone to Use, Although I AM NOT RESPONCIBLE FOR WHAT YOU DO WITH IT... --
--
+
 -- Also, Fuck Off and Dont Copy My Shit Plz :] --
- -
-@		  [RPxGoon]
+
+		              [RPxGoon]
 
