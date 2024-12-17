@@ -3,33 +3,21 @@ import subprocess
 import sys
 
 def install_requirements():
-    """Ensure all requirements are installed."""
-    try:
-        print("[*] Installing/upgrading pip...")
-        subprocess.check_call([sys.executable, '-m', 'ensurepip'])
-        subprocess.check_call([sys.executable, '-m', 'pip', 'install', '--upgrade', 'pip'])
-        
-        print("[*] Installing required packages from requirements.txt...")
-        subprocess.check_call([sys.executable, '-m', 'pip', 'install', '-r', 'requirements.txt'])
-        print("[*] All requirements installed successfully.")
-    except subprocess.CalledProcessError as e:
-        print(f"[!] Failed to install requirements: {e}")
-        sys.exit(1)
+    print("[*] Upgrading pip...")
+    subprocess.run([sys.executable, "-m", "ensurepip"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    subprocess.run([sys.executable, "-m", "pip", "install", "--upgrade", "pip"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 
-def check_python():
-    """Check Python version and inform if unsupported."""
-    if sys.version_info < (3, 7):
-        print("[!] Python 3.7 or higher is required. Please upgrade Python.")
+    print("[*] Installing required Python packages from requirements.txt...")
+    result = subprocess.run([sys.executable, "-m", "pip", "install", "-r", "requirements.txt"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    if result.returncode != 0:
+        print("[!] Failed to install some requirements. Check your internet connection or requirements.txt.")
         sys.exit(1)
 
 def main():
-    print("[*] Checking Python environment...")
-    check_python()
 
-    print("[*] Installing requirements...")
     install_requirements()
 
-    print("[*] Setup complete. You can now run the tool using '3th1c4l.bat'.")
-
+    print("[*] Setup Complete! You can now run 3TH1C4L using '3th1c4l.py'.")
+    
 if __name__ == "__main__":
     main()
