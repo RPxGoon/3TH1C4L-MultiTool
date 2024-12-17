@@ -4,10 +4,10 @@
 
 ---
 
-## A VERY NEW, Work In Progress OSINT / Discord Multi-Tool
+## A VERY NEW, Work In Progress OSINT / Discord / General Purpose Multi-Tool
 
 **DISCLAIMER**  
-This tool is free for anyone to use... **However, I am NOT RESPONSIBLE for what you do with it.**
+This tool is free for anyone to use, however it should only be used for Education and/or Legal Purposes Only... **I am NOT RESPONSIBLE for what you do with it.**
 
 ---
 
@@ -24,13 +24,25 @@ This tool is free for anyone to use... **However, I am NOT RESPONSIBLE for what 
 
 ---
 
+## Coming Soon:
+
+- Multiple Discord Token & Webhook Tools
+- Youtube URL to .MP3 & .MP4
+- Multiple Network / URL Related Tools&Scanners
+- Email / Phone Number Tracker
+- Password Generator
+- Virus / Malware Scanner
+- lots unfinished ill add later on
+
+---
+
 ## Important Notes
 
+*Just Pre Release, Nothing too Special Here Right Now...*
 *This is being updated almost daily and will continue to have features added.*
 *If youd like to request a feature or report an issue/bug, please message me on steam for now.*
 *Also, dont copy my shit please, its not even worth copying* 😎
 
----
 
-*Created by [RPxGoon]*
+* - [RPxGoon]*
 
