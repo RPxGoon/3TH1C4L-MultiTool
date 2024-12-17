@@ -16,12 +16,12 @@ python -m pip install --upgrade pip >nul
 
 echo [*] Installing required Python packages from requirements.txt...
 python -m pip install -r requirements.txt >nul 2>&1
-
 if errorlevel 1 (
     echo [!] Failed to install some requirements. Check your internet connection or requirements.txt.
     pause
     exit /b 1
 )
 
-echo [*] Setup complete. You can now run the tool using '3th1c4l.bat'.
+
+echo [*] Setup Complete! You can now run the tool using '3th1c4l.bat' or '3th1c4l.py'.
 pause
