@@ -32,7 +32,7 @@ This tool is free for anyone to use, however it should only be used for Educatio
 - Email / Phone Number Tracker
 - Password Generator
 - Virus / Malware Scanner
-- lots unfinished ill add later on
+- Unfinished Shit Ill Add Later
 
 ---
 
