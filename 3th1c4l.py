@@ -12,7 +12,7 @@ from scripts.ip_info import run as ip_info
 from scripts.ip_pinger import run_ip_pinger
 from scripts.token_checker import check_token
 from scripts.ip_port_scanner import run as ip_port_scanner
-
+from scripts.website_info_scanner import run as website_info_scanner
 
 
 def smooth_gradient_print(text, start_color, end_color, steps):
@@ -26,7 +26,7 @@ def smooth_gradient_print(text, start_color, end_color, steps):
         g = int(g_start + (g_end - g_start) * (i / steps))
         b = int(b_start + (b_end - b_start) * (i / steps))
         color = f'\033[38;2;{r};{g};{b}m'
-        print(f"{color}{char}", end="")
+        print(f"{color}{char}", end="")  # Print each character with color
     print()
 
 
@@ -70,14 +70,18 @@ def print_menu():
     print(Fore.LIGHTBLACK_EX + "=" * 80)
 
     print(f"{Fore.RED}[01] Show My IP".ljust(26) +
-          f"{Fore.RED}[05] Token Checker".center(26) +
-          f"{Fore.RED}[07] Coming Soon...".rjust(26))
-    print(f"{Fore.RED}[02] IP Info".ljust(26) +
           f"{Fore.RED}[06] Server Nuker".center(26) +
           f"{Fore.RED}[08] Coming Soon...".rjust(26))
-    print(f"{Fore.RED}[03] IP Pinger".ljust(26) +
-          f"{Fore.RED}                       [09] Exit".rjust(26))
+    print(f"{Fore.RED}[02] IP Info".ljust(26) +
+          f"{Fore.RED}[07] Token Checker".center(26) +
+          f"{Fore.RED}[09] Coming Soon...".rjust(26))
+    print(f"{Fore.RED}[03] IP Pinger".ljust(26))
     print(f"{Fore.RED}[04] IP Port Scanner".ljust(26))
+    print(f"{Fore.RED}[05] Website Info Scanner".ljust(26))
+
+    # Move 'Exit' to the bottom right with the letter E
+    print(f"{''.ljust(52)}{Fore.RED}[E] Exit".rjust(26))
+    
     print(Fore.LIGHTBLACK_EX + "=" * 80)
     print()
 
@@ -113,10 +117,13 @@ def run_tool():
             print(f"{Fore.LIGHTGREEN_EX}Running IP Port Scanner...")
             ip_port_scanner()
         elif choice == '5':
+            print(f"{Fore.LIGHTGREEN_EX}Running Website Info Scanner...")
+            website_info_scanner()   
+        elif choice == '7':
             token_discord = input(f"{Fore.LIGHTGREEN_EX}Enter Discord token: {Fore.RESET}")
             print(f"{Fore.LIGHTGREEN_EX}Checking token...")
             check_token(token_discord)
-        elif choice == '9':
+        elif choice.lower() == 'e':  # Accept both 'E' and 'e'
             print(f"{Fore.LIGHTGREEN_EX}Exiting... Goodbye!")
             break
         else:
