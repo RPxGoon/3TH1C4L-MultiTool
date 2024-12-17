@@ -7,6 +7,7 @@
 ## A VERY NEW, Work In Progress OSINT / Discord / General Purpose Multi-Tool
 
 **DISCLAIMER**  
+
 This tool is free for anyone to use, however it should only be used for Education and/or Legal Purposes Only... **I am NOT RESPONSIBLE for what you do with it.**
 
 ---
