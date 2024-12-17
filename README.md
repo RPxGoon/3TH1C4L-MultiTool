@@ -45,5 +45,6 @@ This tool is free for anyone to use, however it should only be used for Educatio
 *Also, dont copy my shit please, its not even worth copying* 😎
 
 
-* *[RPxGoon]*
+
+*[RPxGoon]*
 
