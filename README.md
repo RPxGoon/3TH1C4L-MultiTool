@@ -4,7 +4,7 @@
 
 ---
 
-## A VERY NEW, Work In Progress OSINT / Discord / General Purpose Multi-Tool
+## A NEW Unfinished OSINT / Discord / General Purpose Multi-Tool
 
 **DISCLAIMER**  
 
