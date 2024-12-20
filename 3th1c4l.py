@@ -91,23 +91,23 @@ def print_menu():
 
     print_ascii_logo()
 
-    print(Fore.LIGHTBLACK_EX + "=" * width)
-    print(f"{Fore.CYAN}{'OSINT'.center(width//3)}|{'DISCORD'.center(width//3)}|{'OTHER'.center(width//3)}")
-    print(Fore.LIGHTBLACK_EX + "=" * width)
+    section_width = width // 3
 
-    print(f"{Fore.RED}[01] Show My IP".ljust(width//3) +
-          f"{Fore.RED}[06] Server Nuker".center(width//3) +
-          f"{Fore.RED}[08] Coming Soon...".rjust(width//3))
-    print(f"{Fore.RED}[02] IP Info".ljust(width//3) +
-          f"{Fore.RED}  [07] Token Checker".center(width//3) +
-          f"{Fore.RED}[09] Coming Soon...".rjust(width//3))
-    print(f"{Fore.RED}[03] IP Pinger".ljust(width//3))
-    print(f"{Fore.RED}[04] IP Port Scanner".ljust(width//3))
-    print(f"{Fore.RED}[05] Website Info Scanner".ljust(width//3))
+    box_border_length = section_width - 2
+
+    print(Fore.MAGENTA + "╓" + "─" * box_border_length + "╖" + "╓" + "─" * box_border_length + "╖" + "╓" + "─" * box_border_length + "╖")
+    print(Fore.MAGENTA + "  OSINT".center(box_border_length) + "        DISCORD".center(box_border_length) + "           OTHER".center(box_border_length))
+    print(Fore.MAGENTA + "╙" + "─" * box_border_length + "╜" + "╙" + "─" * box_border_length + "╜" + "╙" + "─" * box_border_length + "╜")
+
+    print(f"{Fore.RED}├─ [01] Show My IP".ljust(section_width) + f"{Fore.RED}├─ [06] Server Nuker".center(section_width) + f"{Fore.RED}├─ [08] Coming Soon...".rjust(section_width))
+    print(f"{Fore.RED}├─ [02] IP Info".ljust(section_width) + f"{Fore.RED}├─ [07] Token Checker".center(section_width) + f"{Fore.RED}├─ [09] Coming Soon...".rjust(section_width))
+    print(f"{Fore.RED}├─ [03] IP Pinger".ljust(section_width))
+    print(f"{Fore.RED}├─ [04] IP Port Scanner".ljust(section_width))
+    print(f"{Fore.RED}├─ [05] Website Info Scanner".ljust(section_width))
 
     print(f"{''.ljust(width - 26)}{Fore.RED}[E] Exit".rjust(26))
-    print(Fore.LIGHTBLACK_EX + "=" * width)
     print()
+
 
 
 def run_tool():
