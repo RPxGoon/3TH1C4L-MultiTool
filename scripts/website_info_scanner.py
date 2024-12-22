@@ -11,16 +11,15 @@ from bs4 import BeautifulSoup
 import whois
 from colorama import Fore, init
 
-# Initialize colorama
+
 init(autoreset=True)
 
-# Disable insecure request warnings
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
-# Color formatting
+
 BEFORE = '\033[1m'
 AFTER = '\033[0m'
-ADD = '\033[92m'  # Green text
+ADD = '\033[92m'  
 white = '\033[97m'
 red = '\033[91m'
 
@@ -31,21 +30,21 @@ def website_info_scanner(website_url):
     if not urlparse(website_url).scheme:
         website_url = "https://" + website_url
 
-    print(f"{BEFORE + current_time_hour() + AFTER} {ADD} Scanning Website: {white}{website_url}{red}")
+    print(f"{BEFORE + current_time_hour() + AFTER} {ADD} [+] Scanning Website: {white}{website_url}{red}")
 
     def website_domain(website_url):
         parsed_url = urlparse(website_url)
         domain = parsed_url.netloc or website_url
-        print(f"{BEFORE + current_time_hour() + AFTER} {ADD} Domain: {white}{domain}{red}")
+        print(f"{BEFORE + current_time_hour() + AFTER} {ADD} [+] Domain: {white}{domain}{red}")
         return domain
 
     def website_ip(domain):
         try:
             ip = socket.gethostbyname(domain)
-            print(f"{BEFORE + current_time_hour() + AFTER} {ADD} IP: {white}{ip}{red}")
+            print(f"{BEFORE + current_time_hour() + AFTER} {ADD} [+] IP: {white}{ip}{red}")
             return ip
         except socket.gaierror:
-            print(f"{BEFORE + current_time_hour() + AFTER} {red}Error: Unable to resolve IP for {domain}{red}")
+            print(f"{BEFORE + current_time_hour() + AFTER} {red}[!] Error: Unable to Resolve IP for {domain}{red}")
             return None
 
     def ip_type(ip):
@@ -55,19 +54,19 @@ def website_info_scanner(website_url):
             ip_type = "IPv4"
         else:
             ip_type = "Unknown"
-        print(f"{BEFORE + current_time_hour() + AFTER} {ADD} IP Type: {white}{ip_type}{red}")
+        print(f"{BEFORE + current_time_hour() + AFTER} {ADD} [+] IP Type: {white}{ip_type}{red}")
 
     def website_secure(website_url):
         secure = website_url.startswith("https://")
-        print(f"{BEFORE + current_time_hour() + AFTER} {ADD} Secure: {white}{secure}{red}")
+        print(f"{BEFORE + current_time_hour() + AFTER} {ADD} [+] Secure: {white}{secure}{red}")
 
     def website_status(website_url):
         try:
             response = requests.get(website_url, timeout=5, verify=False)
             status_code = response.status_code
-            print(f"{BEFORE + current_time_hour() + AFTER} {ADD} Status Code: {white}{status_code}{red}")
+            print(f"{BEFORE + current_time_hour() + AFTER} {ADD} [+] Status Code: {white}{status_code}{red}")
         except RequestException as e:
-            print(f"{BEFORE + current_time_hour() + AFTER} {red}Error: Unable to get status for {website_url} ({e}){red}")
+            print(f"{BEFORE + current_time_hour() + AFTER} {red}[!] Error: Unable to get Status for {website_url} ({e}){red}")
 
     def ip_info(ip):
         if not ip:
@@ -79,7 +78,7 @@ def website_info_scanner(website_url):
             for key, value in api.items():
                 print(f"{BEFORE + current_time_hour() + AFTER} {ADD} {key.capitalize()}: {white}{value}{red}")
         except RequestException as e:
-            print(f"{BEFORE + current_time_hour() + AFTER} {red}Error: Unable to get IP info for {ip} ({e}){red}")
+            print(f"{BEFORE + current_time_hour() + AFTER} {red}[!] Error: Unable to get IP Info for {ip} ({e}){red}")
 
     def website_port(ip):
         if not ip:
@@ -96,7 +95,7 @@ def website_info_scanner(website_url):
                 result = sock.connect_ex((ip, port))
                 if result == 0:
                     protocol = port_protocol_map.get(port, "Unknown")
-                    print(f"{BEFORE + current_time_hour() + AFTER} {ADD} Port: {white}{port}{red} Status: {white}Open{red} Protocol: {white}{protocol}{red}")
+                    print(f"{BEFORE + current_time_hour() + AFTER} {ADD} [+] Port: {white}{port}{red} [+] Status: {white}Open{red} [+] Protocol: {white}{protocol}{red}")
                 sock.close()
             except Exception:
                 pass
@@ -104,7 +103,7 @@ def website_info_scanner(website_url):
         with concurrent.futures.ThreadPoolExecutor() as executor:
             executor.map(lambda port: scan_port(ip, port), port_list)
 
-    # Main workflow
+    
     domain = website_domain(website_url)
     ip = website_ip(domain)
     if ip:
@@ -115,9 +114,8 @@ def website_info_scanner(website_url):
         website_port(ip)
 
 def run():
-    print(f"{Fore.LIGHTGREEN_EX}\n--- Website Info Scanner ---")
-    website_url = input(f"{Fore.LIGHTGREEN_EX}Enter Target Website/URL: {Fore.RESET}").strip()
+    website_url = input(f"{Fore.LIGHTGREEN_EX}[*] Enter Target Website/URL: {Fore.RESET}").strip()
     if not website_url:
-        print(f"{Fore.RED}Invalid Website/URL. Exiting...{Fore.RESET}")
+        print(f"{Fore.RED}[!] Invalid Website/URL. Exiting...{Fore.RESET}")
         return
     website_info_scanner(website_url)

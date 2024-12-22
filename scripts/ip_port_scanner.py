@@ -1,6 +1,6 @@
 import socket
 import concurrent.futures
-from colorama import Fore  # Ensure colorama is imported for Fore.LIGHTGREEN_EX
+from colorama import Fore 
 
 def port_scanner(ip):
     port_protocol_map = {
@@ -16,19 +16,18 @@ def port_scanner(ip):
                 sock.settimeout(0.1)
                 if sock.connect_ex((ip, port)) == 0:
                     protocol = port_protocol_map.get(port, "Unknown")
-                    print(f"{Fore.LIGHTGREEN_EX}Port {port} is OPEN ({protocol})")  # Green output
+                    print(f"{Fore.LIGHTGREEN_EX}[+] Port {port} is OPEN ({protocol})")  
         except Exception:
             pass
 
-    print(f"{Fore.LIGHTGREEN_EX}Scanning IP: {ip} (Ports 1-1024)...")  # Green output
+    print(f"{Fore.LIGHTGREEN_EX}[*] Scanning IP: {ip} (Ports 1-1024)...")  
     with concurrent.futures.ThreadPoolExecutor(max_workers=50) as executor:
-        executor.map(lambda p: scan_port(ip, p), range(1, 1025))  # Scans common ports (1-1024)
-    print(f"{Fore.LIGHTGREEN_EX}Scan complete!")  # Green output
+        executor.map(lambda p: scan_port(ip, p), range(1, 1025)) 
+    print(f"{Fore.LIGHTGREEN_EX}[*] Scan Complete!")  
 
-def run():
-    print(f"{Fore.LIGHTGREEN_EX}\n--- Port Scanner ---")  # Green output
-    ip = input(f"{Fore.LIGHTGREEN_EX}Enter target IP: {Fore.RESET}").strip()  # Green input prompt
+def run(): 
+    ip = input(f"{Fore.LIGHTGREEN_EX}[*] Enter Target IP Address: {Fore.RESET}").strip() 
     if not ip:
-        print(f"{Fore.LIGHTGREEN_EX}Invalid IP address. Exiting...")  # Green output
+        print(f"{Fore.LIGHTGREEN_EX}[!] Invalid IP Address. Exiting...") 
         return
     port_scanner(ip)
