@@ -17,7 +17,7 @@ def main():
 
     install_requirements()
 
-    print("[*] Setup Complete! You can now run 3TH1C4L using '3th1c4l.py'.")
+    print("[*] Setup Complete! You can now run [3TH1C4L] using '3th1c4l.py' or '3th1c4l.bat")
     
 if __name__ == "__main__":
     main()

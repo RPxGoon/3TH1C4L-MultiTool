@@ -2,10 +2,6 @@
 ![{A14000C4-E9D4-471E-B318-19863E91FEC6}](https://github.com/user-attachments/assets/f045151a-46cf-4b64-b6e7-2a48f4ad0867)
 
 
-
-
-
-
 ---
 
 ## | NEW OSINT / Discord / General Purpose Multi-Tool |
@@ -22,7 +18,7 @@ This tool is free, however it should only be used for Education / Legal Purposes
    If you downloaded the tool from the releases section, make sure that the `.zip` file is properly extracted.
 
 2.) **Run the Setup**  
-   To set up the tool, run either `setup.py` or `setup.bat`.
+   To set up the tool, run either `setup.py` or `setup.bat` (manual install: open terminal in location of tool and run 'sudo pip install -r requirements.txt')
 
 3.) **Launch the Tool**  
    After the setup is complete, you can start the tool by running `3th1c4l.py` or `3th1c4l.bat`.
@@ -51,4 +47,3 @@ This tool is free, however it should only be used for Education / Legal Purposes
 
 
 *[RPxGoon]*
-

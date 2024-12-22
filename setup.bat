@@ -1,20 +1,22 @@
-@echo off
-echo [*] Checking for Python installation...
+@echo off 
+echo [*] [3TH1C4L] OFFICIAL DOWNLOAD LINK (https://github.com/RPxGoon/3TH1C4L-MultiTool)
+echo [*] Thanks for the Support :)
+echo [!] Checking for Python installation...
 
 python --version >nul 2>&1
 if errorlevel 1 (
-    echo [*] Python is not installed. Downloading and installing Python...
+    echo [!] Python is not installed. Downloading and installing Python...
     powershell -Command "Invoke-WebRequest -Uri https://www.python.org/ftp/python/3.11.5/python-3.11.5-amd64.exe -OutFile python_installer.exe"
     start /wait python_installer.exe /quiet InstallAllUsers=1 PrependPath=1
     del python_installer.exe
     echo [*] Python installed successfully.
 )
 
-echo [*] Upgrading pip...
+echo [!] Upgrading pip...
 python -m ensurepip >nul 2>&1
 python -m pip install --upgrade pip >nul
 
-echo [*] Installing required Python packages from requirements.txt...
+echo [!] Installing required Python packages from requirements.txt...
 python -m pip install -r requirements.txt >nul 2>&1
 if errorlevel 1 (
     echo [!] Failed to install some requirements. Check your internet connection or requirements.txt.
