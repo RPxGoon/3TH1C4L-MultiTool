@@ -24,6 +24,7 @@ if errorlevel 1 (
     exit /b 1
 )
 
-
 echo [*] Setup Complete! You can now run the tool using '3th1c4l.bat' or '3th1c4l.py'.
 pause
+
+start "" "%~dp0\3th1c4l.bat"
