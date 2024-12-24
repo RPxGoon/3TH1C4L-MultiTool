@@ -22,6 +22,7 @@ from scripts.ip_pinger import run_ip_pinger
 from scripts.discord_token_info import discord_token_info
 from scripts.ip_port_scanner import run as ip_port_scanner
 from scripts.website_info_scanner import run as website_info_scanner
+from scripts.youtube_downloader import youtube_downloader
 
 
 def smooth_gradient_print(text, start_color, end_color):
@@ -104,7 +105,7 @@ def print_menu():
     print(Fore.MAGENTA + "  OSINT".center(box_border_length) + "        DISCORD".center(box_border_length) + "           OTHER".center(box_border_length))
     print(Fore.MAGENTA + "╙" + "─" * box_border_length + "╜" + "╙" + "─" * box_border_length + "╜" + "╙" + "─" * box_border_length + "╜")
     
-    print(f"{Fore.RED}├─ [01] Show My IP".ljust(section_width) + f"{Fore.RED}├─ [06] Token Checker  ".center(section_width) + f"{Fore.RED}├─ [11] Coming Soon...".rjust(section_width))
+    print(f"{Fore.RED}├─ [01] Show My IP".ljust(section_width) + f"{Fore.RED}├─ [06] Token Checker  ".center(section_width) + f"             {Fore.RED}├─ [11] Youtube Downloader".rjust(section_width))
     print(f"{Fore.RED}├─ [02] IP Info".ljust(section_width) + f"{Fore.RED}├─ [07] Coming Soon...".center(section_width) + f"{Fore.RED}├─ [12] Coming Soon...".rjust(section_width))
     print(f"{Fore.RED}├─ [03] IP Pinger".ljust(section_width) + f"{Fore.RED}├─ [08] Coming Soon...".center(section_width) + f"{Fore.RED}├─ [13] Coming Soon...".rjust(section_width))
     print(f"{Fore.RED}├─ [04] Port Scanner".ljust(section_width) + f"{Fore.RED}├─ [09] Coming Soon...".center(section_width) + f"{Fore.RED}├─ [14] Coming Soon...".rjust(section_width))
@@ -155,6 +156,9 @@ def run_tool():
             token_info = input(f"{Fore.LIGHTGREEN_EX}Enter Discord Token: {Fore.RESET}")
             print(f"{Fore.LIGHTGREEN_EX}Checking Discord Token...")
             discord_token_info(token_info)
+        elif choice == '11':
+            print(f"{Fore.LIGHTGREEN_EX}[Youtube Downloader]")
+            youtube_downloader()
         elif choice.lower() == 'n': 
             print(f"{Fore.LIGHTGREEN_EX} [!] Next Page / More Free Tools COMING SOON!...")
             print(f"{Fore.LIGHTGREEN_EX} [!] You May be Missing Features! Make Sure Your Tool is Up to Date! [https://github.com/RPxGoon/3TH1C4L-MultiTool]")
