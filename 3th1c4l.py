@@ -82,7 +82,7 @@ Simple OSINT / Discord Multi-tool
 
 """
     start_color = (255, 0, 0)
-    end_color = (128, 0, 128)
+    end_color = (75, 0, 148)
     width = get_terminal_width()
     for line in logo.splitlines():
         smooth_gradient_print(center_text(line, width), start_color, end_color)
