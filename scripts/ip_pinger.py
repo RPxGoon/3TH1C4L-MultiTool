@@ -12,23 +12,23 @@ def ping_ip(hostname, port, bytes):
         sock.sendall(data)
         end_time = time.time()
         elapsed_time = (end_time - start_time) * 1000
-        print(f"{Fore.GREEN}[+] Hostname: {hostname} {Fore.RED}[+] Time: {elapsed_time:.2f}ms {Fore.RED}[+] Port: {port} {Fore.RED}[+] Bytes: {bytes} {Fore.RED}[=] Status: Succeed")
+        print(f"{Fore.RED}[+] {Fore.GREEN}Hostname: {hostname}  {Fore.RED}[+] {Fore.GREEN}Time: {elapsed_time:.2f}ms   {Fore.RED}[+] {Fore.GREEN}Port: {port}   {Fore.RED}[+] {Fore.GREEN}Bytes: {bytes}   {Fore.GREEN}[=] Status: Succeed")
     except:
         elapsed_time = 0
-        print(f"{Fore.GREEN}[+] Hostname: {hostname} {Fore.RED}[+] Time: {elapsed_time}ms {Fore.RED}[+] Port: {port} {Fore.RED}[+] Bytes: {bytes} {Fore.RED}[=] Status: Fail")
+        print(f"{Fore.RED}[+] {Fore.GREEN}Hostname: {hostname}  {Fore.RED}[+] {Fore.GREEN}Time: {elapsed_time}ms   {Fore.RED}[+] {Fore.GREEN}Port: {port}   {Fore.RED}[+] {Fore.GREEN}Bytes: {bytes}   {Fore.RED}[=] Status: Fail")
 
 def run_ip_pinger():
     
-    hostname = input(f"{Fore.GREEN}[*] Enter Target IP or Hostname: ")
+    hostname = input(f"{Fore.RED}[*] {Fore.GREEN}Enter Target IP or Hostname: ")
 
     try:
-        port_input = input(f"{Fore.GREEN}[*] Enter Port (default is 80): ")
+        port_input = input(f"{Fore.RED}[*] {Fore.GREEN}Enter Port (default is 80): ")
         if port_input.strip():
             port = int(port_input)
         else:
             port = 80
 
-        bytes_input = input(f"{Fore.GREEN}[*] Enter Bytes (default is 64): ")
+        bytes_input = input(f"{Fore.RED}[*] {Fore.GREEN}Enter Bytes (default is 64): ")
         if bytes_input.strip():
             bytes = int(bytes_input)
         else:

@@ -1,5 +1,6 @@
 import requests
 from datetime import datetime, timezone
+from colorama import Fore
 
 def discord_token_info(token_info):
     try:
@@ -55,28 +56,27 @@ def discord_token_info(token_info):
         except:
             avatar_url_discord = "None"
 
-        
         linked_users_discord = api.get('linked_users', 'None')
         linked_users_discord = ' / '.join(linked_users_discord) if linked_users_discord else "None"
 
         bio_discord = "\n" + api.get('bio', 'None') if api.get('bio') else "None"
 
         print(f"""
-    [+] Status       : {status}
-    [+] Token        : {token_info}
-    [+] Username     : {username_discord}
-    [+] Display Name : {display_name_discord}
-    [+] Id           : {user_id_discord}
-    [+] Created      : {created_at_discord}
-    [+] Country      : {country_discord}
-    [+] Email        : {email_discord}
-    [+] Verified     : {email_verified_discord}
-    [+] Phone        : {phone_discord}
-    [+] Nitro        : {nitro_discord}
-    [+] Linked Users : {linked_users_discord}
-    [+] Avatar URL   : {avatar_url_discord}
-    [+] Bio          : {bio_discord}
+    {Fore.RED}[+] {Fore.RESET}Status       : {Fore.RED}{status}{Fore.RESET}
+    {Fore.RED}[+] {Fore.RESET}Token        : {Fore.RED}{token_info}{Fore.RESET}
+    {Fore.RED}[+] {Fore.RESET}Username     : {Fore.RED}{username_discord}{Fore.RESET}
+    {Fore.RED}[+] {Fore.RESET}Display Name : {Fore.RED}{display_name_discord}{Fore.RESET}
+    {Fore.RED}[+] {Fore.RESET}Id           : {Fore.RED}{user_id_discord}{Fore.RESET}
+    {Fore.RED}[+] {Fore.RESET}Created      : {Fore.RED}{created_at_discord}{Fore.RESET}
+    {Fore.RED}[+] {Fore.RESET}Country      : {Fore.RED}{country_discord}{Fore.RESET}
+    {Fore.RED}[+] {Fore.RESET}Email        : {Fore.RED}{email_discord}{Fore.RESET}
+    {Fore.RED}[+] {Fore.RESET}Verified     : {Fore.RED}{email_verified_discord}{Fore.RESET}
+    {Fore.RED}[+] {Fore.RESET}Phone        : {Fore.RED}{phone_discord}{Fore.RESET}
+    {Fore.RED}[+] {Fore.RESET}Nitro        : {Fore.RED}{nitro_discord}{Fore.RESET}
+    {Fore.RED}[+] {Fore.RESET}Linked Users : {Fore.RED}{linked_users_discord}{Fore.RESET}
+    {Fore.RED}[+] {Fore.RESET}Avatar URL   : {Fore.RED}{avatar_url_discord}{Fore.RESET}
+    {Fore.RED}[+] {Fore.RESET}Bio          : {Fore.RED}{bio_discord}{Fore.RESET}
     """)
 
     except Exception as e:
-        print(f"[!] Error Retrieving Information: {e}")
+        print(f"{Fore.RED}[!] {Fore.RESET}{Fore.GREEN}Error Retrieving Information: {Fore.RED}{e}{Fore.RESET}")

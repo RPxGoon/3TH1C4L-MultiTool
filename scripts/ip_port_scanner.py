@@ -16,18 +16,18 @@ def port_scanner(ip):
                 sock.settimeout(0.1)
                 if sock.connect_ex((ip, port)) == 0:
                     protocol = port_protocol_map.get(port, "Unknown")
-                    print(f"{Fore.LIGHTGREEN_EX}[+] Port {port} is OPEN ({protocol})")  
+                    print(f"{Fore.GREEN}[+] Port {port} is OPEN ({protocol})")  
         except Exception:
             pass
 
-    print(f"{Fore.LIGHTGREEN_EX}[*] Scanning IP: {ip} (Ports 1-1024)...")  
+    print(f"{Fore.RED}[*] {Fore.GREEN}Scanning IP: {ip} (Ports 1-1024)...")  
     with concurrent.futures.ThreadPoolExecutor(max_workers=50) as executor:
         executor.map(lambda p: scan_port(ip, p), range(1, 1025)) 
-    print(f"{Fore.LIGHTGREEN_EX}[*] Scan Complete!")  
+    print(f"{Fore.RED}[*] {Fore.GREEN}Scan Complete!")  
 
 def run(): 
-    ip = input(f"{Fore.LIGHTGREEN_EX}[*] Enter Target IP Address: {Fore.RESET}").strip() 
+    ip = input(f"{Fore.RED}[*] {Fore.GREEN}Enter Target IP Address: {Fore.RESET}").strip() 
     if not ip:
-        print(f"{Fore.LIGHTGREEN_EX}[!] Invalid IP Address. Exiting...") 
+        print(f"{Fore.RED}[!] {Fore.GREEN}Invalid IP Address. Exiting...") 
         return
     port_scanner(ip)
