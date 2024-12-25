@@ -1,5 +1,5 @@
 # [3TH1C4L] OSINT/Discord Multi-Tool
-![{2DD945B1-6807-4A16-B1C8-193E7A045033}](https://github.com/user-attachments/assets/129a1e36-05d5-4756-8feb-5256b26e83fa)
+![{6DDD8B23-6B18-49FB-ACDD-CAFEA3F2EAD5}](https://github.com/user-attachments/assets/3b669d8a-b87c-4769-ac6f-3822c3ab36df)
 ![{A158DF28-FCE0-48A1-9BFB-34BAA6AB0E1A}](https://github.com/user-attachments/assets/2f58fda9-8a13-4dfe-b4bb-4295c3b8cfa7)
 
 
