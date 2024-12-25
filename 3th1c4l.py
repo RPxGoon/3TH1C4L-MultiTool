@@ -111,7 +111,7 @@ def print_menu():
     print(f"{Fore.RED}├─ [04] Port Scanner".ljust(section_width) + f"{Fore.RED}├─ [09] Coming Soon...".center(section_width) + f"{Fore.RED}├─ [14] Coming Soon...".rjust(section_width))
     print(f"{Fore.RED}├─ [05] Website Info Scanner".ljust(section_width) + f"{Fore.RED}├─ [10] Coming Soon...".center(section_width) + f"{Fore.RED}├─ [15] Coming Soon...".rjust(section_width))
 
-    print(f"{''.rjust((126) )}{Fore.RED}                                                                             ├─ [N] Next | [E] Exit".rjust(126))
+    print(f"{''.rjust((126) )}{Fore.RED}                                                                             {Fore.MAGENTA}├─ [N] Next | [E] Exit".rjust(126))
     print()
 
 #                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               --    Created by: RPxGoon  --  Please DO NOT REMOVE THIS LINE  --    Only Download From Offical Github Repo: https://github.com/RPxGoon/3TH1C4L-MultiTool   Please DO NOT REMOVE THIS LINE   --  Created by: RPxGoon  --
@@ -137,39 +137,39 @@ def run_tool():
         choice = questionary.text("[3TH1C4L] >>", style=style).ask()
 
         if choice == '1':
-            print(f"{Fore.LIGHTGREEN_EX}[Show My IP]")
+            print(f"{Fore.MAGENTA}[Show My IP]")
             show_my_ip()
         elif choice == '2':
-            print(f"{Fore.LIGHTGREEN_EX}[IP Info]")
+            print(f"{Fore.MAGENTA}[IP Info]")
             ip_info()
         elif choice == '3':
-            print(f"{Fore.LIGHTGREEN_EX}[IP Pinger]")
+            print(f"{Fore.MAGENTA}[IP Pinger]")
             run_ip_pinger()
         elif choice == '4':
-            print(f"{Fore.LIGHTGREEN_EX}[IP Port Scanner]")
+            print(f"{Fore.MAGENTA}[IP Port Scanner]")
             ip_port_scanner()
         elif choice == '5':
-            print(f"{Fore.LIGHTGREEN_EX}[Website Info Scanner]")
+            print(f"{Fore.MAGENTA}[Website Info Scanner]")
             website_info_scanner()   
         elif choice == '6':
-            print(f"{Fore.LIGHTGREEN_EX}[Discord Token Checker]")
-            token_info = input(f"{Fore.LIGHTGREEN_EX}Enter Discord Token: {Fore.RESET}")
-            print(f"{Fore.LIGHTGREEN_EX}Checking Discord Token...")
+            print(f"{Fore.MAGENTA}[Discord Token Checker]")
+            token_info = input(f"{Fore.RED}[*] {Fore.GREEN}Enter Discord Token: {Fore.RESET}")
+            print(f"{Fore.RED}[*] {Fore.GREEN}Checking Discord Token...")
             discord_token_info(token_info)
         elif choice == '11':
-            print(f"{Fore.LIGHTGREEN_EX}[Youtube Downloader]")
+            print(f"{Fore.MAGENTA}[Youtube Downloader]")
             youtube_downloader()
         elif choice.lower() == 'n': 
-            print(f"{Fore.LIGHTGREEN_EX} [!] Next Page / More Free Tools COMING SOON!...")
-            print(f"{Fore.LIGHTGREEN_EX} [!] You May be Missing Features! Make Sure Your Tool is Up to Date! [https://github.com/RPxGoon/3TH1C4L-MultiTool]")
-            print(f"{Fore.LIGHTGREEN_EX} [!] Thank You for Your Support! -[RPxGoon] :)")
+            print(f"{Fore.RED}[!] {Fore.GREEN}Next Page / More Free Tools COMING SOON!...")
+            print(f"{Fore.RED}[!] {Fore.GREEN}You May be Missing Features! Make Sure Your Tool is Up to Date! {Fore.MAGENTA}[https://github.com/RPxGoon/3TH1C4L-MultiTool]")
+            print(f"{Fore.RED}[!] {Fore.GREEN}Thank You for Your Support! {Fore.MAGENTA} [RPxGoon] :]")
         elif choice.lower() == 'e': 
-            print(f"{Fore.LIGHTGREEN_EX} [!] Exiting... Goodbye!")
+            print(f"{Fore.RED}[!] {Fore.GREEN}Exiting... Goodbye!")
             break
         else:
-            print(f"{Fore.LIGHTRED_EX}[!] Invalid Choice. Please select a valid option.")
+            print(f"{Fore.RED}[!] {Fore.GREEN}Invalid Choice. Please Select a Valid Option")
 
-        input(f"{Fore.LIGHTGREEN_EX}[*] Press 'Enter' to continue...")
+        input(f"{Fore.RED}[*] {Fore.GREEN}Press 'Enter' to Continue...")
         os.system('cls' if os.name == 'nt' else 'clear')
 
 
