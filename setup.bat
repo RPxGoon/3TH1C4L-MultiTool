@@ -3,50 +3,43 @@ echo [*] [3TH1C4L] MultiTool - (https://github.com/RPxGoon/3TH1C4L-MultiTool)
 echo [*] Thanks for the Support :)
 echo [!] Checking for Python installation...
 
+REM Check if Python is installed and available in PATH
 python --version >nul 2>&1
 if errorlevel 1 (
-    echo [!] Python is NOT INSTALLED! - Checking System Architecture...
-    
-    set "PYTHON_VERSION=3.11.5"
-    set "PYTHON_URL=https://www.python.org/ftp/python/%PYTHON_VERSION%"
-    
-    for /f "tokens=2 delims==" %%a in ('wmic os get osarchitecture /value 2^>nul') do set "ARCH=%%a"
-    
-    if /i "%ARCH%"=="64-bit" (
-        set "PYTHON_INSTALLER=python-%PYTHON_VERSION%-amd64.exe"
-    ) else (
-        set "PYTHON_INSTALLER=python-%PYTHON_VERSION%-32.exe"
-    )
-    
-    echo [!] Downloading %PYTHON_INSTALLER%...
-    powershell -Command "Invoke-WebRequest -Uri %PYTHON_URL%/%PYTHON_INSTALLER% -OutFile python_installer.exe"
-    
-    if not exist python_installer.exe (
-        echo [!] Failed to Download Python Installer. Check Your Internet Connection or Try Again.
+    echo [!] Python is NOT INSTALLED! - Attempting to Install Python Silently...
+
+    REM Check if winget is available
+    where winget >nul 2>&1
+    if errorlevel 1 (
+        echo [!] winget is not available on your system. Please ensure you are running Windows 10 or 11 with winget installed.
         pause
         exit /b 1
     )
-    
-    echo [!] Installing Python. Please Wait...
-    start /wait python_installer.exe /quiet InstallAllUsers=1 PrependPath=1 > installation_log.txt 2>&1
-    
-    if %errorlevel% neq 0 (
-        echo [!] Python Installation Failed. Check installation_log.txt for Details.
+
+    REM Use winget to install Python silently with the correct argument
+    echo [*] Installing Python via winget...
+    winget install --id Python.Python.3.11 --source winget --silent --accept-package-agreements --verbose-logs > install_log.txt 2>&1
+
+    REM Wait for the installation process to complete (added delay)
+    timeout /t 10 /nobreak >nul
+
+    REM Check if Python was successfully installed
+    python --version >nul 2>&1
+    if errorlevel 1 (
+        echo [!] Failed to Install Python. See install_log.txt for details.
         pause
         exit /b 1
     )
-    
-    del python_installer.exe
-    echo [*] Python Installed Successfully! :]
-) else (
-    echo [*] Python is Already Installed! :]
+
+    echo [*] Python Installed Successfully!
 )
 
+echo [*] Python is Installed! Checking and Installing Required Packages...
 echo [!] Upgrading pip...
 python -m ensurepip >nul 2>&1
 python -m pip install --upgrade pip >nul 2>&1
 if %errorlevel% neq 0 (
-    echo [!] Failed to Upgrade pip. Ensure Python is Properly Installed.
+    echo [!] Failed to Upgrade 'pip'. Ensure Python is Properly Installed.
     pause
     exit /b 1
 )
@@ -59,7 +52,10 @@ if %errorlevel% neq 0 (
     exit /b 1
 )
 
-echo [*] Setup Complete! Press Enter to Close this Window and Open the Main Tool. You Can Now Run the Tool Using '3th1c4l.bat' or '3th1c4l.py'.
-pause
+echo [*] All Required Packages Installed Successfully! :]
 
-start "" "%~dp0\3th1c4l.bat"
+echo [*] Running the Main Tool (3th1c4l.py)...
+start "" python "%~dp0\3th1c4l.py"
+
+echo [*] Setup Complete! The Main Tool Will Now Open Automatically...
+pause
