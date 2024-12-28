@@ -4,7 +4,7 @@
 ## Multi-Tool Designed for Networking, Pentesting, Osint, Discord, and Much More
 
 
-- Developed in Python, by **RPxGoon**
+- Developed 100% in Python**
 - Fully Open Source & Free Forever
 - Updated Almost Daily
 - Available on **Windows** & **Linux**
