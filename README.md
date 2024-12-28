@@ -1,11 +1,11 @@
 # [3TH1C4L] OSINT/Discord Multi-Tool
 ![{6DDD8B23-6B18-49FB-ACDD-CAFEA3F2EAD5}](https://github.com/user-attachments/assets/3b669d8a-b87c-4769-ac6f-3822c3ab36df)
 
+## |⚡ A Forever-Free Multi-Tool Written in Python Bringing Tools for Networking, Pentesting, OSINT, Discord, and Much More to One Place ⚡|
+---
 ![{A158DF28-FCE0-48A1-9BFB-34BAA6AB0E1A}](https://github.com/user-attachments/assets/2f58fda9-8a13-4dfe-b4bb-4295c3b8cfa7)
 
 ---
-
-## |⚡ A Forever-Free Multi-Tool Written in Python Bringing Tools for Networking, Pentesting, OSINT, Discord, and Much More to One Place ⚡|
 
 **⚠️ DISCLAIMER ⚠️**  
 
