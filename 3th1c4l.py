@@ -91,30 +91,45 @@ Simple OSINT / Discord Multi-tool
 
 #                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               --    Created by: RPxGoon  --  Please DO NOT REMOVE THIS LINE  --    Only Download From Offical Github Repo: https://github.com/RPxGoon/3TH1C4L-MultiTool   Please DO NOT REMOVE THIS LINE   --  Created by: RPxGoon  --
 
-def print_menu():
+def print_menu(page=1):
     os.system('cls' if os.name == 'nt' else 'clear')
     width = get_terminal_width()
 
     print_ascii_logo()
 
-    section_width = width // 3
+    if page == 1:
+        section_width = width // 3
+        box_border_length = section_width - 2
 
-    box_border_length = section_width - 2
+        print(Fore.MAGENTA + "╓" + "─" * box_border_length + "╖" + "╓" + "─" * box_border_length + "╖" + "╓" + "─" * box_border_length + "╖")
+        print(Fore.MAGENTA + "  NETWORK SCANNERS".center(box_border_length) + "        OSINT".center(box_border_length) + "           OTHER".center(box_border_length))
+        print(Fore.MAGENTA + "╙" + "─" * box_border_length + "╜" + "╙" + "─" * box_border_length + "╜" + "╙" + "─" * box_border_length + "╜")
 
-    print(Fore.MAGENTA + "╓" + "─" * box_border_length + "╖" + "╓" + "─" * box_border_length + "╖" + "╓" + "─" * box_border_length + "╖")
-    print(Fore.MAGENTA + "  OSINT".center(box_border_length) + "        DISCORD".center(box_border_length) + "           OTHER".center(box_border_length))
-    print(Fore.MAGENTA + "╙" + "─" * box_border_length + "╜" + "╙" + "─" * box_border_length + "╜" + "╙" + "─" * box_border_length + "╜")
+        print(f"{Fore.RED}├─ [01] Show My IP".ljust(section_width) + f"{Fore.RED}├─ [06] Coming Soon...".center(section_width) + f"             {Fore.RED}├─ [11] Youtube Downloader".rjust(section_width))
+        print(f"{Fore.RED}├─ [02] IP Info".ljust(section_width) + f"{Fore.RED}├─ [07] Coming Soon...".center(section_width) + f"{Fore.RED}├─ [12] Coming Soon...".rjust(section_width))
+        print(f"{Fore.RED}├─ [03] IP Pinger".ljust(section_width) + f"{Fore.RED}├─ [08] Coming Soon...".center(section_width) + f"{Fore.RED}├─ [13] Coming Soon...".rjust(section_width))
+        print(f"{Fore.RED}├─ [04] Port Scanner".ljust(section_width) + f"{Fore.RED}├─ [09] Coming Soon...".center(section_width) + f"{Fore.RED}├─ [14] Coming Soon...".rjust(section_width))
+        print(f"{Fore.RED}├─ [05] Website Info Scanner".ljust(section_width) + f"{Fore.RED}├─ [10] Coming Soon...".center(section_width) + f"{Fore.RED}├─ [15] Coming Soon...".rjust(section_width))
+
+    elif page == 2:
+        section_width = width // 3  
+
+        print(Fore.MAGENTA + "╓" + "─" * (width - 2) + "╖")
+        print(Fore.MAGENTA + " " * ((width - len("DISCORD TOOLS")) // 2) + "DISCORD TOOLS")
+        print(Fore.MAGENTA + "╙" + "─" * (width - 2) + "╜")
+
+
+        print(f"{Fore.RED}├─ [16] Discord Server Nuke".ljust(section_width) + f"{Fore.RED}├─ [21] Coming Soon...".center(section_width) + f"{Fore.RED}├─ [26] Coming Soon...".rjust(section_width))
+        print(f"{Fore.RED}├─ [17] Discord Token Checker".ljust(section_width) + f"{Fore.RED}├─ [22] Coming Soon...".center(section_width) + f"{Fore.RED}├─ [27] Coming Soon...".rjust(section_width))
+        print(f"{Fore.RED}├─ [18] Discord Webhook Spammer".ljust(section_width) + f"{Fore.RED}├─ [23] Coming Soon...".center(section_width) + f"{Fore.RED}├─ [28] Coming Soon...".rjust(section_width))
+        print(f"{Fore.RED}├─ [19] Discord Nitro Checker".ljust(section_width) + f"{Fore.RED}├─ [24] Coming Soon...".center(section_width) + f"{Fore.RED}├─ [29] Coming Soon...".rjust(section_width))
+        print(f"{Fore.RED}├─ [20] Discord Server Joiner".ljust(section_width) + f"{Fore.RED}├─ [25] Coming Soon...".center(section_width) + f"{Fore.RED}├─ [30] Coming Soon...".rjust(section_width))
+
     
-    print(f"{Fore.RED}├─ [01] Show My IP".ljust(section_width) + f"{Fore.RED}├─ [06] Token Checker  ".center(section_width) + f"             {Fore.RED}├─ [11] Youtube Downloader".rjust(section_width))
-    print(f"{Fore.RED}├─ [02] IP Info".ljust(section_width) + f"{Fore.RED}├─ [07] Coming Soon...".center(section_width) + f"{Fore.RED}├─ [12] Coming Soon...".rjust(section_width))
-    print(f"{Fore.RED}├─ [03] IP Pinger".ljust(section_width) + f"{Fore.RED}├─ [08] Coming Soon...".center(section_width) + f"{Fore.RED}├─ [13] Coming Soon...".rjust(section_width))
-    print(f"{Fore.RED}├─ [04] Port Scanner".ljust(section_width) + f"{Fore.RED}├─ [09] Coming Soon...".center(section_width) + f"{Fore.RED}├─ [14] Coming Soon...".rjust(section_width))
-    print(f"{Fore.RED}├─ [05] Website Info Scanner".ljust(section_width) + f"{Fore.RED}├─ [10] Coming Soon...".center(section_width) + f"{Fore.RED}├─ [15] Coming Soon...".rjust(section_width))
-
-    print(f"{''.rjust((126) )}{Fore.RED}                                                                             {Fore.MAGENTA}├─ [N] Next | [E] Exit".rjust(126))
+    print(f"{''.rjust((126))}{Fore.RED}                                                                             {Fore.MAGENTA}├─ [N] Next | [B] Back | [E] Exit".rjust(126))
     print()
 
-#                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               --    Created by: RPxGoon  --  Please DO NOT REMOVE THIS LINE  --    Only Download From Offical Github Repo: https://github.com/RPxGoon/3TH1C4L-MultiTool   Please DO NOT REMOVE THIS LINE   --  Created by: RPxGoon  --
+
 
 def run_tool():
     style = questionary.Style([ 
@@ -131,50 +146,55 @@ def run_tool():
     ])
 
     set_cmd_title_and_color()  
+    current_page = 1
 
     while True:
-        print_menu()
+        print_menu(current_page)
         choice = questionary.text("[3TH1C4L] >>", style=style).ask()
 
-        if choice == '1':
+        if choice.lower() == 'n': 
+            if current_page == 1:
+                current_page = 2
+
+        elif choice.lower() == 'b': 
+            if current_page == 2:
+                current_page = 1
+
+        elif choice == '1' and current_page == 1:
             print(f"{Fore.MAGENTA}[Show My IP]")
             show_my_ip()
-        elif choice == '2':
+        elif choice == '2' and current_page == 1:
             print(f"{Fore.MAGENTA}[IP Info]")
             ip_info()
-        elif choice == '3':
+        elif choice == '3' and current_page == 1:
             print(f"{Fore.MAGENTA}[IP Pinger]")
             run_ip_pinger()
-        elif choice == '4':
+        elif choice == '4' and current_page == 1:
             print(f"{Fore.MAGENTA}[IP Port Scanner]")
             ip_port_scanner()
-        elif choice == '5':
+        elif choice == '5' and current_page == 1:
             print(f"{Fore.MAGENTA}[Website Info Scanner]")
-            website_info_scanner()   
-        elif choice == '6':
-            print(f"{Fore.MAGENTA}[Discord Token Checker]")
-            token_info = input(f"{Fore.RED}[*] {Fore.GREEN}Enter Discord Token: {Fore.RESET}")
-            print(f"{Fore.RED}[*] {Fore.GREEN}Checking Discord Token...")
-            discord_token_info(token_info)
-        elif choice == '11':
-            print(f"{Fore.MAGENTA}[Youtube Downloader]")
-            youtube_downloader()
-        elif choice.lower() == 'n': 
-            print(f"{Fore.RED}[!] {Fore.GREEN}Next Page / More Free Tools COMING SOON!...")
-            print(f"{Fore.RED}[!] {Fore.GREEN}You May be Missing Features! Make Sure Your Tool is Up to Date! {Fore.MAGENTA}[https://github.com/RPxGoon/3TH1C4L-MultiTool]")
-            print(f"{Fore.RED}[!] {Fore.GREEN}Thank You for Your Support! {Fore.MAGENTA} [RPxGoon] :]")
+            website_info_scanner()
+        elif choice == '1' and current_page == 2:
+            print(f"{Fore.MAGENTA}[Discord Token Info]")
+            discord_token_info()
         elif choice.lower() == 'e': 
             print(f"{Fore.RED}[!] {Fore.GREEN}Exiting... Goodbye!")
             break
         else:
             print(f"{Fore.RED}[!] {Fore.GREEN}Invalid Choice. Please Select a Valid Option")
 
-        input(f"{Fore.RED}[*] {Fore.GREEN}Press 'Enter' to Continue...")
+        if choice.lower() not in ['n', 'b', 'e']:  
+            input(f"{Fore.RED}[*] {Fore.GREEN}Press 'Enter' to Continue...")
+
         os.system('cls' if os.name == 'nt' else 'clear')
+
+
+
 
 
 if __name__ == "__main__":
     run_tool()
 
 
-#                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               --    Created by: RPxGoon  --  Please DO NOT REMOVE THIS LINE  --    Only Download From Offical Github Repo: https://github.com/RPxGoon/3TH1C4L-MultiTool   Please DO NOT REMOVE THIS LINE   --  Created by: RPxGoon  --
+#                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               --    Created by: RPxGoon  --  Please DO NOT REMOVE THIS LINE  --    Only Download From Offical Github Repo: https://github.com/RPxGoon/3TH1C4L-MultiTool   Please DO NOT REMOVE THIS LINE   --  Created by: RPxGoon  --                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      --    Created by: RPxGoon  --  Please DO NOT REMOVE THIS LINE  --    Only Download From Offical Github Repo: https://github.com/RPxGoon/3TH1C4L-MultiTool   Please DO NOT REMOVE THIS LINE   --  Created by: RPxGoon  --
