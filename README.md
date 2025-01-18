@@ -1,8 +1,9 @@
 ![{A0011625-BCE7-43C5-A291-068FCCDC8BE4}](https://github.com/user-attachments/assets/8c921f56-c260-4982-861e-ef78c8d764df)
 ---
 ![{C197EB76-0740-4EA8-97D2-BC29FF9663A2}](https://github.com/user-attachments/assets/cd78c628-95ce-4fdb-9af2-52e26fbcf964)
-## [3TH1C4L] - Designed for Networking, Pentesting, Osint, Discord, and Much More
 
+
+## [3TH1C4L] - MultiTool Designed for Networking, Pentesting, Osint, Discord, and Much More
 
 - Developed 100% in Python
 - Fully Open Source & Free Forever
@@ -49,7 +50,6 @@ I am **NOT RESPONSIBLE** for any misuse of this tool.
 - This project is actively being updated, with new features/fixes added almost daily.
 - If you'd like to request a feature or report an issue/bug, please contact me on Steam for now.
 - **DO NOT** Copy and/or Re-Sell or Re-Publish This Tool as Your Own; It’s Not Even Worth Copying 😎
-
 
 
 
