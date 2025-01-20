@@ -19,10 +19,17 @@ def set_cmd_title_and_color():
 from scripts.show_my_ip import run as show_my_ip
 from scripts.ip_info import run as ip_info
 from scripts.ip_pinger import run_ip_pinger
-from scripts.discord_token_info import discord_token_info
+from scripts.discord_token_info import run as discord_token_info
 from scripts.ip_port_scanner import run as ip_port_scanner
 from scripts.website_info_scanner import run as website_info_scanner
-from scripts.youtube_downloader import youtube_downloader
+from scripts.discord_server_info import run as discord_server_info
+from scripts.discord_nitro_generator import run as discord_nitro_generator
+from scripts.discord_token_delete_dm import run as discord_token_delete_dm
+
+
+
+
+
 
 
 def smooth_gradient_print(text, start_color, end_color):
@@ -105,11 +112,11 @@ def print_menu(page=1):
         print(Fore.MAGENTA + "  NETWORK SCANNERS".center(box_border_length) + "        OSINT".center(box_border_length) + "           OTHER".center(box_border_length))
         print(Fore.MAGENTA + "╙" + "─" * box_border_length + "╜" + "╙" + "─" * box_border_length + "╜" + "╙" + "─" * box_border_length + "╜")
 
-        print(f"{Fore.RED}├─ [01] Show My IP".ljust(section_width) + f"{Fore.RED}├─ [06] Coming Soon...".center(section_width) + f"             {Fore.RED}├─ [11] Youtube Downloader".rjust(section_width))
-        print(f"{Fore.RED}├─ [02] IP Info".ljust(section_width) + f"{Fore.RED}├─ [07] Coming Soon...".center(section_width) + f"{Fore.RED}├─ [12] Coming Soon...".rjust(section_width))
-        print(f"{Fore.RED}├─ [03] IP Pinger".ljust(section_width) + f"{Fore.RED}├─ [08] Coming Soon...".center(section_width) + f"{Fore.RED}├─ [13] Coming Soon...".rjust(section_width))
-        print(f"{Fore.RED}├─ [04] Port Scanner".ljust(section_width) + f"{Fore.RED}├─ [09] Coming Soon...".center(section_width) + f"{Fore.RED}├─ [14] Coming Soon...".rjust(section_width))
-        print(f"{Fore.RED}├─ [05] Website Info Scanner".ljust(section_width) + f"{Fore.RED}├─ [10] Coming Soon...".center(section_width) + f"{Fore.RED}├─ [15] Coming Soon...".rjust(section_width))
+        print(f"{Fore.RED}├─ [{Fore.MAGENTA}01{Fore.RED}] Show My IP".ljust(section_width) + f"{Fore.RED}               ├─ [{Fore.MAGENTA}06{Fore.RED}] Coming Soon...".center(section_width) + f"{Fore.RED}                  ├─ [{Fore.MAGENTA}11{Fore.RED}] Coming Soon...".rjust(section_width))
+        print(f"{Fore.RED}├─ [{Fore.MAGENTA}02{Fore.RED}] IP Info".ljust(section_width) + f"{Fore.RED}               ├─ [{Fore.MAGENTA}07{Fore.RED}] Coming Soon...".center(section_width) + f"{Fore.RED}                  ├─ [{Fore.MAGENTA}12{Fore.RED}] Coming Soon...".rjust(section_width))
+        print(f"{Fore.RED}├─ [{Fore.MAGENTA}03{Fore.RED}] IP Pinger".ljust(section_width) + f"{Fore.RED}               ├─ [{Fore.MAGENTA}08{Fore.RED}] Coming Soon...".center(section_width) + f"{Fore.RED}                  ├─ [{Fore.MAGENTA}13{Fore.RED}] Coming Soon...".rjust(section_width))
+        print(f"{Fore.RED}├─ [{Fore.MAGENTA}04{Fore.RED}] Port Scanner".ljust(section_width) + f"{Fore.RED}               ├─ [{Fore.MAGENTA}09{Fore.RED}] Coming Soon...".center(section_width) + f"{Fore.RED}                  ├─ [{Fore.MAGENTA}14{Fore.RED}] Coming Soon...".rjust(section_width))
+        print(f"{Fore.RED}├─ [{Fore.MAGENTA}05{Fore.RED}] Website Info Scanner".ljust(section_width) + f"{Fore.RED}            ├─ [{Fore.MAGENTA}10{Fore.RED}] Coming Soon...".center(section_width) + f"{Fore.RED}                  ├─ [{Fore.MAGENTA}15{Fore.RED}] Coming Soon...".rjust(section_width))
 
     elif page == 2:
         section_width = width // 3  
@@ -119,14 +126,14 @@ def print_menu(page=1):
         print(Fore.MAGENTA + "╙" + "─" * (width - 2) + "╜")
 
 
-        print(f"{Fore.RED}├─ [16] Discord Server Nuke".ljust(section_width) + f"{Fore.RED}├─ [21] Coming Soon...".center(section_width) + f"{Fore.RED}├─ [26] Coming Soon...".rjust(section_width))
-        print(f"{Fore.RED}├─ [17] Discord Token Checker".ljust(section_width) + f"{Fore.RED}├─ [22] Coming Soon...".center(section_width) + f"{Fore.RED}├─ [27] Coming Soon...".rjust(section_width))
-        print(f"{Fore.RED}├─ [18] Discord Webhook Spammer".ljust(section_width) + f"{Fore.RED}├─ [23] Coming Soon...".center(section_width) + f"{Fore.RED}├─ [28] Coming Soon...".rjust(section_width))
-        print(f"{Fore.RED}├─ [19] Discord Nitro Checker".ljust(section_width) + f"{Fore.RED}├─ [24] Coming Soon...".center(section_width) + f"{Fore.RED}├─ [29] Coming Soon...".rjust(section_width))
-        print(f"{Fore.RED}├─ [20] Discord Server Joiner".ljust(section_width) + f"{Fore.RED}├─ [25] Coming Soon...".center(section_width) + f"{Fore.RED}├─ [30] Coming Soon...".rjust(section_width))
+        print(f"{Fore.RED}├─ [{Fore.MAGENTA}16{Fore.RED}] Discord Server Info".ljust(section_width) + f"{Fore.RED}             ├─ [{Fore.MAGENTA}21{Fore.RED}] Discord Token Info".center(section_width) + f"{Fore.RED}              ├─ [{Fore.MAGENTA}26{Fore.RED}] Coming Soon...".rjust(section_width))
+        print(f"{Fore.RED}├─ [{Fore.MAGENTA}17{Fore.RED}] Discord Nitro Generator".ljust(section_width) + f"{Fore.RED}         ├─ [{Fore.MAGENTA}22{Fore.RED}] Discord Token Delete DM".center(section_width) + f"{Fore.RED}         ├─ [{Fore.MAGENTA}27{Fore.RED}] Coming Soon...".rjust(section_width))
+        print(f"{Fore.RED}├─ [{Fore.MAGENTA}18{Fore.RED}] Coming Soon...".ljust(section_width) + f"{Fore.RED}               ├─ [{Fore.MAGENTA}23{Fore.RED}] Coming Soon...".center(section_width) + f"{Fore.RED}                  ├─ [{Fore.MAGENTA}28{Fore.RED}] Coming Soon...".rjust(section_width))
+        print(f"{Fore.RED}├─ [{Fore.MAGENTA}19{Fore.RED}] Coming Soon...".ljust(section_width) + f"{Fore.RED}               ├─ [{Fore.MAGENTA}24{Fore.RED}] Coming Soon...".center(section_width) + f"{Fore.RED}                  ├─ [{Fore.MAGENTA}29{Fore.RED}] Coming Soon...".rjust(section_width))
+        print(f"{Fore.RED}├─ [{Fore.MAGENTA}20{Fore.RED}] Coming Soon...".ljust(section_width) + f"{Fore.RED}               ├─ [{Fore.MAGENTA}25{Fore.RED}] Coming Soon...".center(section_width) + f"{Fore.RED}                  ├─ [{Fore.MAGENTA}30{Fore.RED}] Coming Soon...".rjust(section_width))
 
     
-    print(f"{''.rjust((126))}{Fore.RED}                                                                             {Fore.MAGENTA}├─ [N] Next | [B] Back | [E] Exit".rjust(126))
+    print(f"{''.rjust((126))}{Fore.RED}                                                                          {Fore.RED}├─ [{Fore.MAGENTA}N{Fore.RED}] Next | [{Fore.MAGENTA}B{Fore.RED}] Back | [{Fore.MAGENTA}E{Fore.RED}] Exit".rjust(126))
     print()
 
 
@@ -160,24 +167,54 @@ def run_tool():
             if current_page == 2:
                 current_page = 1
 
+
+
+
         elif choice == '1' and current_page == 1:
             print(f"{Fore.MAGENTA}[Show My IP]")
+            print()
             show_my_ip()
+
         elif choice == '2' and current_page == 1:
             print(f"{Fore.MAGENTA}[IP Info]")
+            print()
             ip_info()
+
         elif choice == '3' and current_page == 1:
             print(f"{Fore.MAGENTA}[IP Pinger]")
+            print()
             run_ip_pinger()
+
         elif choice == '4' and current_page == 1:
             print(f"{Fore.MAGENTA}[IP Port Scanner]")
+            print()
             ip_port_scanner()
+
         elif choice == '5' and current_page == 1:
             print(f"{Fore.MAGENTA}[Website Info Scanner]")
+            print()
             website_info_scanner()
-        elif choice == '1' and current_page == 2:
+
+        elif choice == '21' and current_page == 2:
             print(f"{Fore.MAGENTA}[Discord Token Info]")
+            print()
             discord_token_info()
+
+        elif choice == '16' and current_page == 2:
+            print(f"{Fore.MAGENTA}[Discord Server Info]")
+            print()
+            discord_server_info()
+
+        elif choice == '17' and current_page == 2:
+            print(f"{Fore.MAGENTA}[Discord Server Info]")
+            print()
+            discord_nitro_generator()
+
+        elif choice == '22' and current_page == 2:
+            print(f"{Fore.MAGENTA}[Token Delete DM]")
+            print()
+            discord_token_delete_dm()
+
         elif choice.lower() == 'e': 
             print(f"{Fore.RED}[!] {Fore.GREEN}Exiting... Goodbye!")
             break
