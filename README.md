@@ -1,10 +1,4 @@
-![{577C3174-3496-42DF-AC83-C14034D02904}](https://github.com/user-attachments/assets/f3c2ef4f-e846-4349-a98b-6310d009779a)
-
-
-
 ![{E624B738-5273-47F2-8EAE-C2DB547C1D3C}](https://github.com/user-attachments/assets/ef637c69-4c42-4eb0-a4ee-9f3dec8d8295)
-
-
 ---
 ![{9AA38D8C-964E-4B60-A526-EA4D0CD1AF14}](https://github.com/user-attachments/assets/271b889b-68fb-4d71-84a5-a720294d5576)
 
