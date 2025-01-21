@@ -17,7 +17,7 @@ def set_cmd_title_and_color():
 #                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               --    Created by: RPxGoon  --  Please DO NOT REMOVE THIS LINE  --    Only Download From Offical Github Repo: https://github.com/RPxGoon/3TH1C4L-MultiTool   Please DO NOT REMOVE THIS LINE   --  Created by: RPxGoon  --
 
 from scripts.show_my_ip import run as show_my_ip
-from scripts.ip_info import run as ip_info
+from scripts.ip_scanner import run as ip_scanner
 from scripts.ip_pinger import run_ip_pinger
 from scripts.discord_token_info import run as discord_token_info
 from scripts.ip_port_scanner import run as ip_port_scanner
@@ -25,6 +25,8 @@ from scripts.website_info_scanner import run as website_info_scanner
 from scripts.discord_server_info import run as discord_server_info
 from scripts.discord_nitro_generator import run as discord_nitro_generator
 from scripts.discord_token_delete_dm import run as discord_token_delete_dm
+from scripts.username_tracker import run as username_tracker
+from scripts.password_generator import run as password_generator
 
 
 
@@ -112,8 +114,8 @@ def print_menu(page=1):
         print(Fore.MAGENTA + "  NETWORK SCANNERS".center(box_border_length) + "        OSINT".center(box_border_length) + "           OTHER".center(box_border_length))
         print(Fore.MAGENTA + "╙" + "─" * box_border_length + "╜" + "╙" + "─" * box_border_length + "╜" + "╙" + "─" * box_border_length + "╜")
 
-        print(f"{Fore.RED}├─ [{Fore.MAGENTA}01{Fore.RED}] Show My IP".ljust(section_width) + f"{Fore.RED}               ├─ [{Fore.MAGENTA}06{Fore.RED}] Coming Soon...".center(section_width) + f"{Fore.RED}                  ├─ [{Fore.MAGENTA}11{Fore.RED}] Coming Soon...".rjust(section_width))
-        print(f"{Fore.RED}├─ [{Fore.MAGENTA}02{Fore.RED}] IP Info".ljust(section_width) + f"{Fore.RED}               ├─ [{Fore.MAGENTA}07{Fore.RED}] Coming Soon...".center(section_width) + f"{Fore.RED}                  ├─ [{Fore.MAGENTA}12{Fore.RED}] Coming Soon...".rjust(section_width))
+        print(f"{Fore.RED}├─ [{Fore.MAGENTA}01{Fore.RED}] Show My IP".ljust(section_width) + f"{Fore.RED}               ├─ [{Fore.MAGENTA}06{Fore.RED}] Username Tracker".center(section_width) + f"{Fore.RED}                ├─ [{Fore.MAGENTA}11{Fore.RED}] Password Generator".rjust(section_width))
+        print(f"{Fore.RED}├─ [{Fore.MAGENTA}02{Fore.RED}] IP Scanner".ljust(section_width) + f"{Fore.RED}               ├─ [{Fore.MAGENTA}07{Fore.RED}] Coming Soon...".center(section_width) + f"{Fore.RED}                  ├─ [{Fore.MAGENTA}12{Fore.RED}] Coming Soon...".rjust(section_width))
         print(f"{Fore.RED}├─ [{Fore.MAGENTA}03{Fore.RED}] IP Pinger".ljust(section_width) + f"{Fore.RED}               ├─ [{Fore.MAGENTA}08{Fore.RED}] Coming Soon...".center(section_width) + f"{Fore.RED}                  ├─ [{Fore.MAGENTA}13{Fore.RED}] Coming Soon...".rjust(section_width))
         print(f"{Fore.RED}├─ [{Fore.MAGENTA}04{Fore.RED}] Port Scanner".ljust(section_width) + f"{Fore.RED}               ├─ [{Fore.MAGENTA}09{Fore.RED}] Coming Soon...".center(section_width) + f"{Fore.RED}                  ├─ [{Fore.MAGENTA}14{Fore.RED}] Coming Soon...".rjust(section_width))
         print(f"{Fore.RED}├─ [{Fore.MAGENTA}05{Fore.RED}] Website Info Scanner".ljust(section_width) + f"{Fore.RED}            ├─ [{Fore.MAGENTA}10{Fore.RED}] Coming Soon...".center(section_width) + f"{Fore.RED}                  ├─ [{Fore.MAGENTA}15{Fore.RED}] Coming Soon...".rjust(section_width))
@@ -178,7 +180,7 @@ def run_tool():
         elif choice == '2' and current_page == 1:
             print(f"{Fore.MAGENTA}[IP Info]")
             print()
-            ip_info()
+            ip_scanner()
 
         elif choice == '3' and current_page == 1:
             print(f"{Fore.MAGENTA}[IP Pinger]")
@@ -202,11 +204,10 @@ def run_tool():
 
         elif choice == '16' and current_page == 2:
             print(f"{Fore.MAGENTA}[Discord Server Info]")
-            print()
             discord_server_info()
 
         elif choice == '17' and current_page == 2:
-            print(f"{Fore.MAGENTA}[Discord Server Info]")
+            print(f"{Fore.MAGENTA}[Discord Nitro Generator]")
             print()
             discord_nitro_generator()
 
@@ -214,6 +215,19 @@ def run_tool():
             print(f"{Fore.MAGENTA}[Token Delete DM]")
             print()
             discord_token_delete_dm()
+
+        elif choice == '6' and current_page == 1:
+            print(f"{Fore.MAGENTA}[Username Tracker]")
+            print()
+            username_tracker()
+
+        elif choice == '11' and current_page == 1:
+             print(f"{Fore.MAGENTA}[Password Generator]")
+             print()
+             password_generator()
+        
+
+
 
         elif choice.lower() == 'e': 
             print(f"{Fore.RED}[!] {Fore.GREEN}Exiting... Goodbye!")
