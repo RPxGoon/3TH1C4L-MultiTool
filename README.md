@@ -1,4 +1,5 @@
-![ethicallogo](https://github.com/user-attachments/assets/d6f3fe6d-00b2-4969-976d-e8ca9e288c36)
+![{577C3174-3496-42DF-AC83-C14034D02904}](https://github.com/user-attachments/assets/f3c2ef4f-e846-4349-a98b-6310d009779a)
+
 
 
 ![{E624B738-5273-47F2-8EAE-C2DB547C1D3C}](https://github.com/user-attachments/assets/ef637c69-4c42-4eb0-a4ee-9f3dec8d8295)
