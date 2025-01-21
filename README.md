@@ -3,15 +3,13 @@
 ![{9AA38D8C-964E-4B60-A526-EA4D0CD1AF14}](https://github.com/user-attachments/assets/271b889b-68fb-4d71-84a5-a720294d5576)
 
 
-
-
 ## [3TH1C4L] - MultiTool Designed for Networking, Pentesting, Osint, Discord, and Much More
 
 - Developed 100% in Python
 - Fully Open Source & Free Forever
-- Updated Almost Daily
-- Available on **Windows** & **Linux**
-- **NO REQUIREMENTS** - Installs Python if Not Found (Windows Only)
+- Updated Weekly
+- Available on **Windows 10,11** & **Linux**
+- **NO REQUIREMENTS** - Installs Python if Not Installed (Windows Only)
 
 ---
 
@@ -38,12 +36,12 @@ I am **NOT RESPONSIBLE** for any misuse of this tool.
 ## 🔜 **Coming Soon**
 
 - Multiple **Discord Token & Webhook Tools**
-- **YouTube URL to .MP3 & .MP4** (Experimental/Temporary Tool in Main Branch)
 - Various **Network & URL Scanners/Tools**
-- **Email & Phone Number Tracker**
-- **Password Generator**
+- **Email & Phone Number Trackers & Other OSINT Tools**
+- **Customizable Password Generator**
 - **Virus/Malware Scanner**
-- Unfinished features to be added later
+- **Obfuscation Tool**
+- **Other General Tools & Utilities** 
 
 ---
 
