@@ -1,4 +1,3 @@
-import random
 import string
 import json
 import requests
@@ -21,6 +20,8 @@ VALID = f"{GREEN}[VALID]{RESET}"
 
 def error_handler(error_message):
     print(f"{ERROR} {error_message}")
+
+    print()
 
 def print_title(title):
     print(f"\n{YELLOW}{'=' * 50}\n{title.center(50)}\n{'=' * 50}{RESET}\n")

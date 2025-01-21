@@ -70,21 +70,21 @@ def run():
 
         # Print gathered data
         print(f"""
-{Fore.RED}[+] {Fore.RESET}Status       : {Fore.RED}{status}{Fore.RESET}
-{Fore.RED}[+] {Fore.RESET}Token        : {Fore.RED}{token_info}{Fore.RESET}
-{Fore.RED}[+] {Fore.RESET}Username     : {Fore.RED}{username_discord}{Fore.RESET}
-{Fore.RED}[+] {Fore.RESET}Display Name : {Fore.RED}{display_name_discord}{Fore.RESET}
-{Fore.RED}[+] {Fore.RESET}ID           : {Fore.RED}{user_id_discord}{Fore.RESET}
-{Fore.RED}[+] {Fore.RESET}Created      : {Fore.RED}{created_at_discord}{Fore.RESET}
-{Fore.RED}[+] {Fore.RESET}Country      : {Fore.RED}{country_discord}{Fore.RESET}
-{Fore.RED}[+] {Fore.RESET}Email        : {Fore.RED}{email_discord}{Fore.RESET}
-{Fore.RED}[+] {Fore.RESET}Verified     : {Fore.RED}{email_verified_discord}{Fore.RESET}
-{Fore.RED}[+] {Fore.RESET}Phone        : {Fore.RED}{phone_discord}{Fore.RESET}
-{Fore.RED}[+] {Fore.RESET}Nitro        : {Fore.RED}{nitro_discord}{Fore.RESET}
-{Fore.RED}[+] {Fore.RESET}Linked Users : {Fore.RED}{linked_users_discord}{Fore.RESET}
-{Fore.RED}[+] {Fore.RESET}Avatar URL   : {Fore.RED}{avatar_url_discord}{Fore.RESET}
-{Fore.RED}[+] {Fore.RESET}Bio          : {Fore.RED}{bio_discord}{Fore.RESET}
+{Fore.RED}[+] {Fore.GREEN}Status       : {Fore.RED}{status}{Fore.RESET}
+{Fore.RED}[+] {Fore.GREEN}Token        : {Fore.RED}{token_info}{Fore.RESET}
+{Fore.RED}[+] {Fore.GREEN}Username     : {Fore.RED}{username_discord}{Fore.RESET}
+{Fore.RED}[+] {Fore.GREEN}Display Name : {Fore.RED}{display_name_discord}{Fore.RESET}
+{Fore.RED}[+] {Fore.GREEN}ID           : {Fore.RED}{user_id_discord}{Fore.RESET}
+{Fore.RED}[+] {Fore.GREEN}Created      : {Fore.RED}{created_at_discord}{Fore.RESET}
+{Fore.RED}[+] {Fore.GREEN}Country      : {Fore.RED}{country_discord}{Fore.RESET}
+{Fore.RED}[+] {Fore.GREEN}Email        : {Fore.RED}{email_discord}{Fore.RESET}
+{Fore.RED}[+] {Fore.GREEN}Verified     : {Fore.RED}{email_verified_discord}{Fore.RESET}
+{Fore.RED}[+] {Fore.GREEN}Phone        : {Fore.RED}{phone_discord}{Fore.RESET}
+{Fore.RED}[+] {Fore.GREEN}Nitro        : {Fore.RED}{nitro_discord}{Fore.RESET}
+{Fore.RED}[+] {Fore.GREEN}Linked Users : {Fore.RED}{linked_users_discord}{Fore.RESET}
+{Fore.RED}[+] {Fore.GREEN}Avatar URL   : {Fore.RED}{avatar_url_discord}{Fore.RESET}
+{Fore.RED}[+] {Fore.GREEN}Bio          : {Fore.RED}{bio_discord}{Fore.RESET}
 """)
 
     except Exception as e:
-        print(f"{Fore.RED}[!] {Fore.RESET}{Fore.GREEN}Error Retrieving Information: {Fore.RED}{e}{Fore.RESET}")
+        print(f"{Fore.RED}[!] Error Retrieving Information: {Fore.RED}{e}{Fore.RESET}")

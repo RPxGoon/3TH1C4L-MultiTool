@@ -8,6 +8,7 @@ def run():
     """
     try:
         invite = input(f"{Fore.GREEN}[*] Server Invitation -> ")
+        print()
 
         
        
