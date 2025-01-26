@@ -3,7 +3,7 @@
 ![{9AA38D8C-964E-4B60-A526-EA4D0CD1AF14}](https://github.com/user-attachments/assets/271b889b-68fb-4d71-84a5-a720294d5576)
 
 
-## [3TH1C4L] - MultiTool Designed for Networking, Pentesting, Osint, Discord, and Much More
+## <h1 align="center">[3TH1C4L] - MultiTool Designed for Networking, Pentesting, Osint, Discord, and Much More</h1> 
 
 - Developed 100% in Python
 - Fully Open Source & Free Forever
