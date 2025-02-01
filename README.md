@@ -1,6 +1,8 @@
-![{E624B738-5273-47F2-8EAE-C2DB547C1D3C}](https://github.com/user-attachments/assets/ef637c69-4c42-4eb0-a4ee-9f3dec8d8295)
+![{8D04FBBF-DFDA-4C7D-A28A-B66AAEA06D2D}](https://github.com/user-attachments/assets/46946c6b-3c36-4aad-a757-b7b943d895e0)
+
 ---
-![{9AA38D8C-964E-4B60-A526-EA4D0CD1AF14}](https://github.com/user-attachments/assets/271b889b-68fb-4d71-84a5-a720294d5576)
+![{5B4D7050-1809-49AB-95D8-415C8D81D80F}](https://github.com/user-attachments/assets/89374a34-d1b4-4518-88df-f6a8e160e578)
+
 
 
 ## <h1 align="center">[3TH1C4L] - MultiTool Designed for Networking, Pentesting, Osint, Discord, and Much More</h1> 
