@@ -1,12 +1,17 @@
 @echo off
 echo [*] [3TH1C4L] MultiTool - (https://github.com/RPxGoon/3TH1C4L-MultiTool)
 echo [*] Thanks for the Support :)
+echo.
 echo [!] Checking for Python installation...
+echo.
+
 
 REM Check if Python is installed and available in PATH
 python --version >nul 2>&1
 if errorlevel 1 (
     echo [!] Python is NOT INSTALLED! - Attempting to Install Python Silently...
+    echo.
+
 
     REM Check if winget is available
     where winget >nul 2>&1
@@ -23,18 +28,14 @@ if errorlevel 1 (
     REM Wait for the installation process to complete (added delay)
     timeout /t 10 /nobreak >nul
 
-    REM Check if Python was successfully installed
-    python --version >nul 2>&1
-    if errorlevel 1 (
-        echo [!] Failed to Install Python. See install_log.txt for details.
-        pause
-        exit /b 1
-    )
-
-    echo [*] Python Installed Successfully!
+    REM Reopen the batch file to check installation after the installation process
+    echo [*] Reopening setup.bat to verify installation...
+    start "" "%~f0"
+    exit /b
 )
 
 echo [*] Python is Installed! Checking and Installing Required Packages...
+echo.
 echo [!] Upgrading pip...
 python -m ensurepip >nul 2>&1
 python -m pip install --upgrade pip >nul 2>&1
@@ -52,7 +53,7 @@ if %errorlevel% neq 0 (
     exit /b 1
 )
 
-echo [*] All Required Packages Installed Successfully! :]
+echo [*] All Required Packages Installed Successfully! :)
 
 echo [*] Running the Main Tool (3th1c4l.py)...
 start "" python "%~dp0\3th1c4l.py"
