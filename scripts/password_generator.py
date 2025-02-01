@@ -1,6 +1,6 @@
 import random
 import string
-from colorama import Fore  # Import the Fore module from colorama
+from colorama import Fore  
 
 def generate_password():
 
@@ -28,19 +28,15 @@ def generate_password():
 
     print()
 
-    # Ensure at least one character set is selected
     if not (include_uppercase or include_numbers or include_specials):
         print(f"{Fore.RED}[!] You Must Select at Least One Character Set (Uppercase, Numbers, or Special Characters). ")
 
-    # Character pools
     lowercase_pool = string.ascii_lowercase
     uppercase_pool = string.ascii_uppercase if include_uppercase else ''
     numbers_pool = string.digits if include_numbers else ''
 
-    # Combine all selected pools
     character_pool = lowercase_pool + uppercase_pool + numbers_pool + specials_pool
 
-    # Ensure the password contains at least one character from each selected set
     password = []
     if include_uppercase:
         password.append(random.choice(uppercase_pool))
@@ -48,17 +44,15 @@ def generate_password():
         password.append(random.choice(numbers_pool))
     if include_specials:
         password.append(random.choice(specials_pool))
-    password.append(random.choice(lowercase_pool))  # Add at least one lowercase letter
+    password.append(random.choice(lowercase_pool))  
 
-    # Fill the rest of the password length with random characters from the pool
     remaining_length = length - len(password)
     if remaining_length > 0:
         password += random.choices(character_pool, k=remaining_length)
 
-    # Shuffle the password to avoid predictable patterns
     random.shuffle(password)
 
-    # Convert list to string
+    
     final_password = ''.join(password)
     print(f"\n{Fore.RED}[+] {Fore.GREEN}Generated Password: {Fore.MAGENTA}{final_password}\n")
     return final_password

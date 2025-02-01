@@ -48,7 +48,7 @@ def run():
             return
 
        
-        print(f"{Fore.RED}[!] {Fore.RESET}Deleting DMs...")
+        print(f"{Fore.RED}[!] {Fore.RESET}Deleting All DMs...")
         processes = []
         for channel_batch in [channels[i:i + 3] for i in range(0, len(channels), 3)]:
             t = threading.Thread(target=dm_deleter, args=(token, channel_batch))

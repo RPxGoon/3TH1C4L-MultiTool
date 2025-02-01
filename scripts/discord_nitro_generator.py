@@ -3,7 +3,7 @@ import json
 import requests
 import threading
 
-# Define colors for console output
+
 RED = '\033[91m'
 GREEN = '\033[92m'
 YELLOW = '\033[93m'
@@ -11,7 +11,7 @@ BLUE = '\033[94m'
 WHITE = '\033[97m'
 RESET = '\033[0m'
 
-# Define status prefixes
+
 INFO = f"{BLUE}[INFO]{RESET}"
 SUCCESS = f"{GREEN}[+]{RESET}"
 ERROR = f"{RED}[-]{RESET}"
@@ -26,7 +26,6 @@ def error_handler(error_message):
 def print_title(title):
     print(f"\n{YELLOW}{'=' * 50}\n{title.center(50)}\n{'=' * 50}{RESET}\n")
 
-# Function to send the webhook notification
 def send_webhook(webhook_url, url_nitro, username_webhook, avatar_webhook, color_webhook):
     payload = {
         'embeds': [{
@@ -49,7 +48,6 @@ def send_webhook(webhook_url, url_nitro, username_webhook, avatar_webhook, color
     except requests.RequestException as e:
         error_handler(f"Failed to send webhook: {e}")
 
-# Function to generate and check Discord Nitro codes
 def nitro_check(webhook_url, webhook_enabled, username_webhook, avatar_webhook, color_webhook):
     code_nitro = ''.join(random.choices(string.ascii_uppercase + string.digits, k=16))
     url_nitro = f'https://discord.gift/{code_nitro}'
@@ -66,7 +64,7 @@ def nitro_check(webhook_url, webhook_enabled, username_webhook, avatar_webhook, 
     except requests.RequestException as e:
         error_handler(f"Error checking Nitro code: {e}")
 
-# Main function encapsulated as run()
+
 def run():
     print_title("Discord Nitro Generator")
 
@@ -76,19 +74,19 @@ def run():
     if webhook_enabled:
         webhook_url = input(f"{INFO} Enter Webhook URL: ")
 
-    # Get username and avatar for webhook
+    
     username_webhook = input(f"{INFO} Webhook Username (default: Nitro Bot): ") or "Nitro Bot"
     avatar_webhook = input(f"{INFO} Webhook Avatar URL (optional): ") or ""
-    color_webhook = 0x00FF00  # Green color for the embed
+    color_webhook = 0x00FF00  
 
-    # Ask for number of threads
+   
     try:
         threads_number = int(input(f"{INFO} Enter the number of threads: "))
     except ValueError:
         error_handler("Invalid number of threads. Please enter a valid number.")
         return
 
-    # Function to handle multiple threads
+    
     def create_threads():
         threads = []
         for _ in range(threads_number):

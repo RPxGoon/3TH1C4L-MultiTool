@@ -110,3 +110,7 @@ def run():
         print(f"{Fore.RED}[!] {Fore.YELLOW}Invalid Website/URL. Exiting...")
         return
     website_info_scanner(website_url)
+
+# Run the function
+if __name__ == "__main__":
+    run()
