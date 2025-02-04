@@ -1,20 +1,20 @@
 import os
 import sys
 import shutil
+import colorama
 from colorama import init, Fore, Style
 import questionary
+import getpass
 
 init(autoreset=True)
-
+username = getpass.getuser()
 
 def set_cmd_title_and_color():
     if os.name == 'nt': 
         os.system('title [3TH1C4L] Multi-Tool')
         os.system('color 0A')
-        
 
-#                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               --    Created by: RPxGoon  --  Please DO NOT REMOVE THIS LINE  --    Only Download From Offical Github Repo: https://github.com/RPxGoon/3TH1C4L-MultiTool   Please DO NOT REMOVE THIS LINE   --  Created by: RPxGoon  --
-
+# Importing scripts from the scripts folder, use filename as function
 from scripts.show_my_ip import run as show_my_ip
 from scripts.ip_scanner import run as ip_scanner
 from scripts.ip_pinger import run_ip_pinger
@@ -29,6 +29,22 @@ from scripts.discord_token_block_friends import run as discord_token_block_frien
 from scripts.username_tracker import run as username_tracker
 from scripts.password_generator import run as password_generator
 
+# Dictionary to make it easier when adding new scripts
+TOOLS = {
+    '1': {'name': 'My Public IP Address', 'function': show_my_ip, 'page': 1},
+    '2': {'name': 'IP Scanner', 'function': ip_scanner, 'page': 1},
+    '3': {'name': 'IP Pinger', 'function': run_ip_pinger, 'page': 1},
+    '4': {'name': 'IP Port Scanner', 'function': ip_port_scanner, 'page': 1},
+    '5': {'name': 'Website Info Scanner', 'function': website_info_scanner, 'page': 1},
+    '6': {'name': 'Username Tracker', 'function': username_tracker, 'page': 1},
+    '11': {'name': 'Password Generator', 'function': password_generator, 'page': 1},
+    '16': {'name': 'Discord Server Info', 'function': discord_server_info, 'page': 2},
+    '17': {'name': 'Discord Nitro Generator', 'function': discord_nitro_generator, 'page': 2},
+    '21': {'name': 'Discord Webhook Deleter', 'function': discord_webhook_deleter, 'page': 2},
+    '26': {'name': 'Discord Token Info', 'function': discord_token_info, 'page': 2},
+    '27': {'name': 'Token Delete DM', 'function': discord_token_delete_dm, 'page': 2},
+    '28': {'name': 'Discord Token User ID Blocker', 'function': discord_token_block_friends, 'page': 2},
+}
 
 def smooth_gradient_print(text, start_color, end_color):
     steps = len(text) - 1 if len(text) > 1 else 1  
@@ -45,20 +61,16 @@ def smooth_gradient_print(text, start_color, end_color):
     gradient_text += Style.RESET_ALL
     print(gradient_text)
 
-
 def get_terminal_width(default_width=80):
-    """Get terminal width or fallback to default."""
     try:
         width = shutil.get_terminal_size().columns
     except Exception:
         width = default_width
     return max(80, width)  
 
-
 def center_text(text, width=None):
     width = width or get_terminal_width()
     return text.center(width)
-
 
 def print_ascii_logo():
     logo = r"""
@@ -77,7 +89,7 @@ def print_ascii_logo():
 /* ++------------------------------------------------------------------++ */
 /* ++------------------------------------------------------------------++ */
 
-Simple OSINT / Discord Multi-tool
+Simple 'CLI' Python Multi-Tool
 [https://github.com/RPxGoon/3TH1C4L-MultiTool]
 """
     start_color = (255, 0, 0)  # Red
@@ -86,9 +98,6 @@ Simple OSINT / Discord Multi-tool
     for line in logo.splitlines():
         centered_line = center_text(line, width)
         smooth_gradient_print(centered_line, start_color, end_color)
-
-
-#                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               --    Created by: RPxGoon  --  Please DO NOT REMOVE THIS LINE  --    Only Download From Offical Github Repo: https://github.com/RPxGoon/3TH1C4L-MultiTool   Please DO NOT REMOVE THIS LINE   --  Created by: RPxGoon  --
 
 def print_menu(page=1):
     os.system('cls' if os.name == 'nt' else 'clear')
@@ -126,114 +135,61 @@ def print_menu(page=1):
     print(f"{''.rjust((126))}{Fore.RED}                                                                          {Fore.RED}├─ [{Fore.MAGENTA}N{Fore.RED}] Next | [{Fore.MAGENTA}B{Fore.RED}] Back | [{Fore.MAGENTA}E{Fore.RED}] Exit".rjust(126))
     print()
 
-
 def run_tool():
-    style = questionary.Style([ 
-        ("question", "bold fg:green"),
-        ("answer", "fg:green"),
-        ("questionmark", "fg:red"),
-        ("pointer", "fg:green"),
-        ("selected", "fg:green"),
-        ("input", "fg:green"),
-        ("highlighted", "fg:green"),
-        ("inactive", "fg:green"),
-        ("instructions", "fg:green"),
-        ("prompt", "fg:green"),
+    custom_style = questionary.Style([
+        ("question", "bold fg:#39FF14"),  # Neon lime green
+        ("answer", "fg:#39FF14"),
+        ("pointer", "fg:#39FF14"),
+        ("selected", "fg:#39FF14"),
+        ("input", "fg:#39FF14"),
+        ("highlighted", "fg:#39FF14"),
+        ("instruction", "fg:#39FF14"),
+        ("text", "fg:red bold"),  # Red for brackets [], parentheses (), and dashes ─
+        ("prompt", "fg:#39FF14"),
     ])
+
+
 
     set_cmd_title_and_color()  
     current_page = 1
 
     while True:
         print_menu(current_page)
-        choice = questionary.text("[3TH1C4L] >>", style=style).ask()
+        choice = questionary.text(
+            f"┌──({username}@3TH1C4L)─[~/main]\n └─$",
+            qmark="",  #THIS REMOVES THE ANNOYING ASS QUESTIONMARK FROM QUESTIONARY
+            style=custom_style,
+        ).ask()
 
-        if choice.lower() == 'n': 
+        if choice.lower() == 'n':
             if current_page == 1:
                 current_page = 2
 
-        elif choice.lower() == 'b': 
+        elif choice.lower() == 'b':
             if current_page == 2:
                 current_page = 1
 
-        elif choice == '1' and current_page == 1:
-            print(f"{Fore.MAGENTA}[Show My IP]")
-            print()
-            show_my_ip()
-
-        elif choice == '2' and current_page == 1:
-            print(f"{Fore.MAGENTA}[IP Info]")
-            print()
-            ip_scanner()
-
-        elif choice == '3' and current_page == 1:
-            print(f"{Fore.MAGENTA}[IP Pinger]")
-            print()
-            run_ip_pinger()
-
-        elif choice == '4' and current_page == 1:
-            print(f"{Fore.MAGENTA}[IP Port Scanner]")
-            print()
-            ip_port_scanner()
-
-        elif choice == '5' and current_page == 1:
-            print(f"{Fore.MAGENTA}[Website Info Scanner]")
-            print()
-            website_info_scanner()
-
-        elif choice == '26' and current_page == 2:
-            print(f"{Fore.MAGENTA}[Discord Token Info]")
-            print()
-            discord_token_info()
-
-        elif choice == '16' and current_page == 2:
-            print(f"{Fore.MAGENTA}[Discord Server Info]")
-            discord_server_info()
-
-        elif choice == '17' and current_page == 2:
-            print(f"{Fore.MAGENTA}[Discord Nitro Generator]")
-            print()
-            discord_nitro_generator()
-
-        elif choice == '27' and current_page == 2:
-            print(f"{Fore.MAGENTA}[Token Delete DM]")
-            print()
-            discord_token_delete_dm()
-
-        elif choice == '6' and current_page == 1:
-            print(f"{Fore.MAGENTA}[Username Tracker]")
-            print()
-            username_tracker()
-
-        elif choice == '11' and current_page == 1:
-             print(f"{Fore.MAGENTA}[Password Generator]")
-             print()
-             password_generator()
-
-        elif choice == "21" and current_page == 2:
-            print(f"{Fore.MAGENTA}[Discord Webhook Deleter]")
-            print()
-            discord_webhook_deleter()
-        
-        elif choice == "28" and current_page == 2:
-            print(f"{Fore.MAGENTA}[Discord Token User ID Blocker]") 
-            print()
-            discord_token_block_friends()
-
-        elif choice.lower() == 'e': 
-            print(f"{Fore.RED}[!] {Fore.GREEN}Exiting... Goodbye!")
+        elif choice.lower() == 'e':
+            print(f"{Fore.RED}[!] {Fore.LIGHTGREEN_EX}Exiting... Goodbye!")
             break
-        else:
-            print(f"{Fore.RED}[!] {Fore.GREEN}Invalid Choice. Please Select a Valid Option")
 
-        if choice.lower() not in ['n', 'b', 'e']:  
-            input(f"{Fore.RED}[*] {Fore.GREEN}Press 'Enter' to Continue...")
+        # Handling tool selection from TOOLS dictionary
+        elif choice in TOOLS:
+            tool = TOOLS[choice]
+            if tool['page'] == current_page:
+                print(f"{Fore.MAGENTA}[{tool['name']}]")
+                print()
+                tool['function']()
+            else:
+                print(f"{Fore.RED}[!] {Fore.LIGHTGREEN_EX}Invalid Choice. Please Select a Valid Option")
+
+        else:
+            print(f"{Fore.RED}[!] {Fore.LIGHTGREEN_EX}Invalid Choice. Please Select a Valid Option")
+
+        if choice.lower() not in ['n', 'b', 'e']:
+            input(f"{Fore.RED}[*] {Fore.LIGHTGREEN_EX}Press 'Enter' to Continue...")
 
         os.system('cls' if os.name == 'nt' else 'clear')
 
-
 if __name__ == "__main__":
     run_tool()
-
-
-#                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               --    Created by: RPxGoon  --  Please DO NOT REMOVE THIS LINE  --    Only Download From Offical Github Repo: https://github.com/RPxGoon/3TH1C4L-MultiTool   Please DO NOT REMOVE THIS LINE   --  Created by: RPxGoon  --                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      --    Created by: RPxGoon  --  Please DO NOT REMOVE THIS LINE  --    Only Download From Offical Github Repo: https://github.com/RPxGoon/3TH1C4L-MultiTool   Please DO NOT REMOVE THIS LINE   --  Created by: RPxGoon  --
