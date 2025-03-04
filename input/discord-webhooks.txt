@@ -1,0 +1,2 @@
+🟢 Discord Webhook Storage 🟢      
+-- (Webhooks Must Be Below This Line) --
