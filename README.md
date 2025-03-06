@@ -37,20 +37,19 @@ I am **NOT RESPONSIBLE** for any misuse of this tool.
 
 ## 🔜 **Coming Soon**
 
-- Multiple **Discord Token & Webhook Tools**
+- Multiple **Discord Related Tools**
 - Various **Network & URL Scanners/Tools**
 - **Email & Phone Number Trackers & Other OSINT Tools**
-- **Customizable Password Generator**
-- **Virus/Malware Scanner**
+- Customizable **Password Generator**
 - **Obfuscation Tool**
-- **Other General Tools & Utilities** 
+- Other **General Tools & Utilities** 
 
 ---
 
 ## ⭐ **Important Notes**
 
-- This project is actively being updated, with new features/fixes added almost daily.
-- If you'd like to request a feature or report an issue/bug, please contact me on Steam for now.
+- This project is actively being updated, ideally weekly
+- If you'd like to request a feature or report an issue/bug, please join the support server
 - **DO NOT** Copy and/or Re-Sell or Re-Publish This Tool as Your Own; It’s Not Even Worth Copying 😎
 
 
