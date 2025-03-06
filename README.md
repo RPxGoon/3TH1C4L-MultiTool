@@ -48,9 +48,9 @@ I am **NOT RESPONSIBLE** for any misuse of this tool.
 
 ## ⭐ **Important Notes**
 
-- This project is actively being updated, ideally weekly
-- If you'd like to request a feature or report an issue/bug, please join the support server
 - **DO NOT** Copy and/or Re-Sell or Re-Publish This Tool as Your Own; It’s Not Even Worth Copying 😎
+- This project is actively being updated, ideally weekly ; Certain features may not work as intended
+- If you'd like to request a feature or report an issue/bug, please join the support server
 
 
 
