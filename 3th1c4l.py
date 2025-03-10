@@ -45,7 +45,7 @@ def set_cmd_title_and_color():
     if os.name == 'nt':
         os.system('title [3TH1C4L] Multi-Tool && color 0A')
 
-# Dictionary with lazy loading for easy implementation
+# after many attempts, this lazy loading is the most effecient way to expand
 TOOLS = {
     '1': {'name': 'My Public IP Address', 'module': 'scripts.show_my_ip', 'function': 'run', 'page': 1},
     '2': {'name': 'IP Scanner', 'module': 'scripts.ip_scanner', 'function': 'run', 'page': 1},
@@ -58,6 +58,7 @@ TOOLS = {
     '17': {'name': 'Discord Nitro Generator', 'module': 'scripts.discord_nitro_generator', 'function': 'run', 'page': 2},
     '21': {'name': 'Discord Webhook Deleter', 'module': 'scripts.discord_webhook_deleter', 'function': 'run', 'page': 2},
     '22': {'name': 'Discord Webhook Spammer', 'module': 'scripts.discord_webhook_spammer', 'function': 'run', 'page': 2},
+    '23': {'name': 'Discord Webhook Info', 'module': 'scripts.discord_webhook_info', 'function': 'run', 'page': 2},
     '26': {'name': 'Discord Token Info', 'module': 'scripts.discord_token_info', 'function': 'run', 'page': 2},
     '27': {'name': 'Token Delete DM', 'module': 'scripts.discord_token_delete_dm', 'function': 'run', 'page': 2},
     '28': {'name': 'Discord Token User ID Blocker', 'module': 'scripts.discord_token_block_friends', 'function': 'run', 'page': 2},
@@ -102,7 +103,7 @@ Simple 'CLI' Python Multi-Tool
 def print_ascii_logo():
     width = get_terminal_width()
     start_color = (255, 0, 0)
-    end_color = (75, 0, 148)
+    end_color = (102, 11, 193)
     for line in ASCII_LOGO.splitlines():
         smooth_gradient_print(center_text(line, width), start_color, end_color)
 
@@ -132,9 +133,9 @@ def print_menu(page=1):
         print(Fore.MAGENTA + " " * ((width - len("DISCORD TOOLS")) // 2) + "DISCORD TOOLS")
         print(Fore.MAGENTA + "╙" + "─" * (width - 2) + "╜")
 
-        print(f"{Fore.RED}├─ [{Fore.MAGENTA}16{Fore.RED}] Discord Server Info".ljust(section_width) + f"{Fore.RED}             ├─ [{Fore.MAGENTA}21{Fore.RED}] Delete Discord Webhook".center(section_width) + f"{Fore.RED}          ├─ [{Fore.MAGENTA}26{Fore.RED}] Discord Token Info".rjust(section_width))
+        print(f"{Fore.RED}├─ [{Fore.MAGENTA}16{Fore.RED}] Discord Server Info".ljust(section_width) + f"{Fore.RED}             ├─ [{Fore.MAGENTA}21{Fore.RED}] Discord Webhook Delete".center(section_width) + f"{Fore.RED}          ├─ [{Fore.MAGENTA}26{Fore.RED}] Discord Token Info".rjust(section_width))
         print(f"{Fore.RED}├─ [{Fore.MAGENTA}17{Fore.RED}] Discord Nitro Generator".ljust(section_width) + f"{Fore.RED}         ├─ [{Fore.MAGENTA}22{Fore.RED}] Discord Webhook Spammer".center(section_width) + f"{Fore.RED}         ├─ [{Fore.MAGENTA}27{Fore.RED}] Discord Token Delete DM".rjust(section_width))
-        print(f"{Fore.RED}├─ [{Fore.MAGENTA}18{Fore.RED}] Coming Soon...".ljust(section_width) + f"{Fore.RED}               ├─ [{Fore.MAGENTA}23{Fore.RED}] Coming Soon...".center(section_width) + f"{Fore.RED}                  ├─ [{Fore.MAGENTA}28{Fore.RED}] Discord Token Friend Blocker".rjust(section_width))
+        print(f"{Fore.RED}├─ [{Fore.MAGENTA}18{Fore.RED}] Coming Soon...".ljust(section_width) + f"{Fore.RED}               ├─ [{Fore.MAGENTA}23{Fore.RED}] Discord Webhook Info".center(section_width) + f"{Fore.RED}            ├─ [{Fore.MAGENTA}28{Fore.RED}] Discord Token Friend Blocker".rjust(section_width))
         print(f"{Fore.RED}├─ [{Fore.MAGENTA}19{Fore.RED}] Coming Soon...".ljust(section_width) + f"{Fore.RED}               ├─ [{Fore.MAGENTA}24{Fore.RED}] Coming Soon...".center(section_width) + f"{Fore.RED}                  ├─ [{Fore.MAGENTA}29{Fore.RED}] Coming Soon...".rjust(section_width))
         print(f"{Fore.RED}├─ [{Fore.MAGENTA}20{Fore.RED}] Coming Soon...".ljust(section_width) + f"{Fore.RED}               ├─ [{Fore.MAGENTA}25{Fore.RED}] Coming Soon...".center(section_width) + f"{Fore.RED}                  ├─ [{Fore.MAGENTA}30{Fore.RED}] Coming Soon...".rjust(section_width))
 
@@ -167,7 +168,7 @@ def run_tool():
         ).ask()
 
         if choice.lower() == 'n' and current_page == 1:
-            animate_loading(0.3)  # Add loading animation for page change
+            animate_loading(0.3)
             current_page = 2
         elif choice.lower() == 'b' and current_page == 2:
             animate_loading(0.3)  
