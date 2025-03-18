@@ -9,10 +9,161 @@ from colorama import init, Fore, Style
 import questionary
 import getpass
 from importlib import import_module
+import requests
+from packaging import version
+import customtkinter as ctk
+                                                                                                                                                                                                                                                                                                                         #                                                                                                                         --  PLEASE DO NOT REMOVE THIS LINE  --  OFFICIAL REPO: https://github.com/RPxGoon/3TH1C4L-MultiTool  --  DO NOT CHANGE CODE AND BRAND AS YOUR OWN WITHOUT GIVING CREDITS TO ORIGINAL  --  OFFICIAL REPO: https://github.com/RPxGoon/3TH1C4L-MultiTool  --  PLEASE DO NOT REMOVE THIS LINE  --
 
+CURRENT_VERSION = "1.0.2"
+GITHUB_REPO = "RPxGoon/3TH1C4L-MultiTool"
+GITHUB_API_URL = f"https://api.github.com/repos/{GITHUB_REPO}/releases/latest"
 
 init(autoreset=True)
 username = getpass.getuser()
+
+class UpdateCheckerGUI:
+    def __init__(self):
+        self.root = ctk.CTk()
+        self.root.title("3TH1C4L Updater")
+        
+        window_width = 400
+        window_height = 200
+
+        screen_width = self.root.winfo_screenwidth()
+        screen_height = self.root.winfo_screenheight()
+        x = (screen_width - window_width) // 2
+        y = (screen_height - window_height) // 2
+        
+     
+        self.root.geometry(f"{window_width}x{window_height}+{x}+{y}")
+        self.root.overrideredirect(True)
+        self.root.attributes('-topmost', True)
+        
+       
+        ctk.set_appearance_mode("dark")
+        
+                                                                                                                                                                                                                                                                                                                                 #                                                                                                                         --  PLEASE DO NOT REMOVE THIS LINE  --  OFFICIAL REPO: https://github.com/RPxGoon/3TH1C4L-MultiTool  --  DO NOT CHANGE CODE AND BRAND AS YOUR OWN WITHOUT GIVING CREDITS TO ORIGINAL  --  OFFICIAL REPO: https://github.com/RPxGoon/3TH1C4L-MultiTool  --  PLEASE DO NOT REMOVE THIS LINE  --
+       
+        self.frame = ctk.CTkFrame(
+            self.root,
+            fg_color="#0a0a0a",  
+            corner_radius=12
+        )
+        self.frame.pack(expand=True, fill="both", padx=2, pady=2)
+        self.content_frame = ctk.CTkFrame(
+            self.frame,
+            fg_color="transparent"
+        )
+        self.content_frame.place(relx=0.5, rely=0.5, anchor="center")
+        
+        self.title_label = ctk.CTkLabel(
+            self.content_frame,
+            text="3TH1C4L",
+            font=("Segoe UI", 32, "bold"),
+            text_color="#ff0000"
+        )
+        self.title_label.pack(pady=(0, 15))
+        
+        self.status = ctk.CTkLabel(
+            self.content_frame,
+            text="Checking for updates...",
+            font=("Segoe UI", 14),
+            text_color="#660bb1"
+        )
+        self.status.pack(pady=(0, 20))
+        
+        self.progress = ctk.CTkProgressBar(
+            self.content_frame,
+            width=300,
+            height=3,
+            corner_radius=1,
+            progress_color="#ff0000",
+            fg_color="#1a1a1a"
+        )
+        self.progress.pack()
+        self.progress.start()
+        
+        self.root.update_idletasks()
+        self.root.lift()
+        
+    def update_status(self, text):
+        self.status.configure(text=text)
+        self.root.update()
+        
+    def close(self):
+        self.root.destroy()
+
+def check_for_updates():
+    if os.name == 'nt':
+        import ctypes
+        ctypes.windll.user32.ShowWindow(ctypes.windll.kernel32.GetConsoleWindow(), 0)
+    
+    gui = UpdateCheckerGUI()
+    gui.root.lift() 
+    
+    try:
+        response = requests.get(GITHUB_API_URL)
+        if response.status_code == 200:
+            latest_version = response.json()['tag_name'].replace('v', '')
+            
+            if version.parse(latest_version) > version.parse(CURRENT_VERSION):
+                gui.update_status("Update found! Downloading...")
+                time.sleep(1)
+                
+                download_url = response.json()['zipball_url']
+                r = requests.get(download_url, stream=True)
+                
+                with open("update.zip", "wb") as f:
+                    for chunk in r.iter_content(chunk_size=8192):
+                        if chunk:
+                            f.write(chunk)
+                
+                gui.update_status("Installing update...")
+                time.sleep(1)
+            
+                import zipfile
+                with zipfile.ZipFile("update.zip", 'r') as zip_ref:
+                    zip_ref.extractall("update_temp")
+                
+                update_folder = os.path.join("update_temp", os.listdir("update_temp")[0])
+                for item in os.listdir(update_folder):
+                    src = os.path.join(update_folder, item)
+                    dst = os.path.join(os.path.dirname(__file__), item)
+                    if os.path.isfile(src):
+                        shutil.copy2(src, dst)
+                    elif os.path.isdir(src):
+                        if os.path.exists(dst):
+                            shutil.rmtree(dst)
+                        shutil.copytree(src, dst)
+                
+                shutil.rmtree("update_temp")
+                os.remove("update.zip")
+                
+                gui.update_status("Update complete! Restarting...")
+                time.sleep(2)
+                gui.close()
+                
+                if os.name == 'nt':
+                    ctypes.windll.user32.ShowWindow(ctypes.windll.kernel32.GetConsoleWindow(), 1)
+                
+                os.execl(sys.executable, sys.executable, *sys.argv)
+            else:
+                gui.update_status("No updates available")
+                time.sleep(1)
+                gui.close()
+                
+    except Exception as e:
+        gui.update_status(f"Update check failed")
+        time.sleep(1)
+        gui.close()
+    
+    if os.name == 'nt':
+        ctypes.windll.user32.ShowWindow(ctypes.windll.kernel32.GetConsoleWindow(), 1)
+    
+    try:
+        gui.root.destroy()
+    except:
+        pass
 
 def loading_spinner():
     spinner = itertools.cycle(['⠋', '⠙', '⠹', '⠸', '⠼', '⠴', '⠦', '⠧', '⠇', '⠏'])
@@ -45,7 +196,6 @@ def set_cmd_title_and_color():
     if os.name == 'nt':
         os.system('title [3TH1C4L] Multi-Tool && color 0A')
 
-# after many attempts, this lazy loading is the most effecient way to expand
 TOOLS = {
     '1': {'name': 'My Public IP Address', 'module': 'scripts.show_my_ip', 'function': 'run', 'page': 1},
     '2': {'name': 'IP Scanner', 'module': 'scripts.ip_scanner', 'function': 'run', 'page': 1},
@@ -63,6 +213,8 @@ TOOLS = {
     '27': {'name': 'Token Delete DM', 'module': 'scripts.discord_token_delete_dm', 'function': 'run', 'page': 2},
     '28': {'name': 'Discord Token User ID Blocker', 'module': 'scripts.discord_token_block_friends', 'function': 'run', 'page': 2},
 }
+
+                                                                                                                                                                                                                                                                                                                         #                                                                                                                         --  PLEASE DO NOT REMOVE THIS LINE  --  OFFICIAL REPO: https://github.com/RPxGoon/3TH1C4L-MultiTool  --  DO NOT CHANGE CODE AND BRAND AS YOUR OWN WITHOUT GIVING CREDITS TO ORIGINAL  --  OFFICIAL REPO: https://github.com/RPxGoon/3TH1C4L-MultiTool  --  PLEASE DO NOT REMOVE THIS LINE  --
 
 def smooth_gradient_print(text, start_color, end_color):
     steps = len(text) - 1 if len(text) > 1 else 1
@@ -107,6 +259,7 @@ def print_ascii_logo():
     for line in ASCII_LOGO.splitlines():
         smooth_gradient_print(center_text(line, width), start_color, end_color)
 
+                                                                                                                                                                                                                                                                                                                         #                                                                                                                         --  PLEASE DO NOT REMOVE THIS LINE  --  OFFICIAL REPO: https://github.com/RPxGoon/3TH1C4L-MultiTool  --  DO NOT CHANGE CODE AND BRAND AS YOUR OWN WITHOUT GIVING CREDITS TO ORIGINAL  --  OFFICIAL REPO: https://github.com/RPxGoon/3TH1C4L-MultiTool  --  PLEASE DO NOT REMOVE THIS LINE  --
 def print_menu(page=1):
     os.system('cls' if os.name == 'nt' else 'clear')
     width = get_terminal_width()
@@ -141,7 +294,6 @@ def print_menu(page=1):
 
     print(f"{''.rjust((126))}{Fore.RED}                                                                          {Fore.RED}├─ [{Fore.MAGENTA}N{Fore.RED}] Next | [{Fore.MAGENTA}B{Fore.RED}] Back | [{Fore.MAGENTA}E{Fore.RED}] Exit".rjust(126))
     print()
-
 
 CUSTOM_STYLE = questionary.Style([
     ("question", "bold lime"),
@@ -196,6 +348,7 @@ def run_tool():
             input(f"{Fore.RED}[*] {Fore.LIGHTGREEN_EX}Press 'Enter' to Continue...")
             
         os.system('cls' if os.name == 'nt' else 'clear')
-
+                                                                                                                                                                                                                                                                                                                         #                                                                                                                         --  PLEASE DO NOT REMOVE THIS LINE  --  OFFICIAL REPO: https://github.com/RPxGoon/3TH1C4L-MultiTool  --  DO NOT CHANGE CODE AND BRAND AS YOUR OWN WITHOUT GIVING CREDITS TO ORIGINAL  --  OFFICIAL REPO: https://github.com/RPxGoon/3TH1C4L-MultiTool  --  PLEASE DO NOT REMOVE THIS LINE  --
 if __name__ == "__main__":
+    check_for_updates()
     run_tool()
