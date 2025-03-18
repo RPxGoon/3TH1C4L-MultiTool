@@ -12,42 +12,33 @@
 
 - Developed 100% in Python
 - Fully Open Source & Free Forever
-- Updated Weekly
-- Available on **Windows 10,11** & **Linux**
-- **NO REQUIREMENTS** - Installs Python if Not Installed (Windows Only)
+- One Click Installation
+- Automatic Updates
+- Available on **Windows** & **Linux**
+- **NO REQUIREMENTS** - Installs Python if Not Installed _(Windows Only)_
 
 ---
 
 ## ⚠️ **DISCLAIMER**  
 
-This tool was developed for personal use and **educational** / **legal purposes** only.
-I am **NOT RESPONSIBLE** for any misuse of this tool.
+_This tool was developed for personal use and **educational** / **legal purposes** only.
+I am **NOT RESPONSIBLE** for any misuse of this tool._
 
 ---
 
 ## ✨ **Installation Guide**
 
 1. **Extract the Zip**  
-   If you downloaded the tool from the releases section, ensure the `.zip` file is properly extracted.
+   _If you downloaded from the releases, ensure the `.zip` file is properly extracted._
 
 2. **Run the Setup**  
-   To install the required dependencies, run either `setup.py` or `setup.bat` to check for Python installation and automatically download the necessary packages.
+   _To continue, run either `setup.py` or `setup.bat` to check for Python and finish installing dependencies._
 
 3. **Launch the Tool**  
-   After installation is complete, you can open the tool by running `3th1c4l.py` or `3th1c4l.bat` (if it doesn’t launch automatically).
+   _After installation is complete, you can open the tool by running `3th1c4l.py` or `3th1c4l.bat` (if it doesn’t launch automatically)._
 
 ---
 
-## 🔜 **Coming Soon**
-
-- Multiple **Discord Related Tools**
-- Various **Network & URL Scanners/Tools**
-- **Email & Phone Number Trackers & Other OSINT Tools**
-- Customizable **Password Generator**
-- **Obfuscation Tool**
-- Other **General Tools & Utilities** 
-
----
 
 ## ⭐ **Important Notes**
 
