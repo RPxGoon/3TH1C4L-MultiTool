@@ -3,7 +3,6 @@
 ![Screenshot 2025-03-09 213456](https://github.com/user-attachments/assets/c91b2a7a-19a7-4b30-8436-c6cd790e06a5)
 
 ## <h1 align="center">[3TH1C4L] - MultiTool Designed for Networking, Pentesting, Osint, Discord, and Much More</h1> 
-
 <p align="center">
 
 <img src="https://img.shields.io/github/stars/RPxGoon/3TH1C4L-MultiTool?color=brightgreen&label=Stars&style=for-the-badge" alt="GitHub Stars">
