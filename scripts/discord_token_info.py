@@ -2,7 +2,7 @@ import requests
 from datetime import datetime, timezone
 from colorama import Fore, init
 import os
-
+                                                                                                                                                                                                                                                                                                                         #                                                                                                                         --  PLEASE DO NOT REMOVE THIS LINE  --  OFFICIAL REPO: https://github.com/RPxGoon/3TH1C4L-MultiTool  --  DO NOT CHANGE CODE AND BRAND AS YOUR OWN WITHOUT GIVING CREDITS TO ORIGINAL  --  OFFICIAL REPO: https://github.com/RPxGoon/3TH1C4L-MultiTool  --  PLEASE DO NOT REMOVE THIS LINE  --
 init(autoreset=True)
 
 def extract_tokens(file_path):
@@ -103,6 +103,6 @@ def run():
 {Fore.RED}[+] {Fore.GREEN}Nitro        : {Fore.RED}{nitro_discord}{Fore.RESET}
 {Fore.RED}[+] {Fore.GREEN}Avatar URL   : {Fore.RED}{avatar_url_discord}{Fore.RESET}
 """)
-
+                                                                                                                                                                                                                                                                                                                         #                                                                                                                         --  PLEASE DO NOT REMOVE THIS LINE  --  OFFICIAL REPO: https://github.com/RPxGoon/3TH1C4L-MultiTool  --  DO NOT CHANGE CODE AND BRAND AS YOUR OWN WITHOUT GIVING CREDITS TO ORIGINAL  --  OFFICIAL REPO: https://github.com/RPxGoon/3TH1C4L-MultiTool  --  PLEASE DO NOT REMOVE THIS LINE  --
 if __name__ == "__main__":
     run()

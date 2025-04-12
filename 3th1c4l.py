@@ -14,7 +14,7 @@ from packaging import version
 import customtkinter as ctk
                                                                                                                                                                                                                                                                                                                          #                                                                                                                         --  PLEASE DO NOT REMOVE THIS LINE  --  OFFICIAL REPO: https://github.com/RPxGoon/3TH1C4L-MultiTool  --  DO NOT CHANGE CODE AND BRAND AS YOUR OWN WITHOUT GIVING CREDITS TO ORIGINAL  --  OFFICIAL REPO: https://github.com/RPxGoon/3TH1C4L-MultiTool  --  PLEASE DO NOT REMOVE THIS LINE  --
 
-CURRENT_VERSION = "1.0.4"
+CURRENT_VERSION = "1.0.5"
 GITHUB_REPO = "RPxGoon/3TH1C4L-MultiTool"
 GITHUB_API_URL = f"https://api.github.com/repos/{GITHUB_REPO}/releases/latest"
 
@@ -100,7 +100,7 @@ def check_for_updates():
     
     gui = UpdateCheckerGUI()
     gui.root.lift() 
-    
+                                                                                                                                                                                                                                                                                                                             #                                                                                                                         --  PLEASE DO NOT REMOVE THIS LINE  --  OFFICIAL REPO: https://github.com/RPxGoon/3TH1C4L-MultiTool  --  DO NOT CHANGE CODE AND BRAND AS YOUR OWN WITHOUT GIVING CREDITS TO ORIGINAL  --  OFFICIAL REPO: https://github.com/RPxGoon/3TH1C4L-MultiTool  --  PLEASE DO NOT REMOVE THIS LINE  --
     try:
         response = requests.get(GITHUB_API_URL)
         if response.status_code == 200:
@@ -196,6 +196,8 @@ def set_cmd_title_and_color():
     if os.name == 'nt':
         os.system('title [3TH1C4L] Multi-Tool && color 0A')
 
+                                                                                                                                                                                                                                                                                                                         #                                                                                                                         --  PLEASE DO NOT REMOVE THIS LINE  --  OFFICIAL REPO: https://github.com/RPxGoon/3TH1C4L-MultiTool  --  DO NOT CHANGE CODE AND BRAND AS YOUR OWN WITHOUT GIVING CREDITS TO ORIGINAL  --  OFFICIAL REPO: https://github.com/RPxGoon/3TH1C4L-MultiTool  --  PLEASE DO NOT REMOVE THIS LINE  --
+
 TOOLS = {
     '1': {'name': 'My Public IP Address', 'module': 'scripts.show_my_ip', 'function': 'run', 'page': 1},
     '2': {'name': 'IP Scanner', 'module': 'scripts.ip_scanner', 'function': 'run', 'page': 1},
@@ -247,7 +249,7 @@ ASCII_LOGO = r"""
 /* ||                           [RPxGoon]░                             || */
 /* ++------------------------------------------------------------------++ */
 /* ++------------------------------------------------------------------++ */
-
+                                                                                                                                                                                                                                                                                                                         #                                                                                                                         --  PLEASE DO NOT REMOVE THIS LINE  --  OFFICIAL REPO: https://github.com/RPxGoon/3TH1C4L-MultiTool  --  DO NOT CHANGE CODE AND BRAND AS YOUR OWN WITHOUT GIVING CREDITS TO ORIGINAL  --  OFFICIAL REPO: https://github.com/RPxGoon/3TH1C4L-MultiTool  --  PLEASE DO NOT REMOVE THIS LINE  --
 Simple 'CLI' Python Multi-Tool
 [https://github.com/RPxGoon/3TH1C4L-MultiTool]
 """
@@ -306,7 +308,7 @@ CUSTOM_STYLE = questionary.Style([
     ("text", "red bold"),
     ("prompt", "lime"),
 ])
-
+                                                                                                                                                                                                                                                                                                                         #                                                                                                                         --  PLEASE DO NOT REMOVE THIS LINE  --  OFFICIAL REPO: https://github.com/RPxGoon/3TH1C4L-MultiTool  --  DO NOT CHANGE CODE AND BRAND AS YOUR OWN WITHOUT GIVING CREDITS TO ORIGINAL  --  OFFICIAL REPO: https://github.com/RPxGoon/3TH1C4L-MultiTool  --  PLEASE DO NOT REMOVE THIS LINE  --
 def run_tool():
     set_cmd_title_and_color()
     current_page = 1
