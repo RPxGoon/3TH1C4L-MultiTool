@@ -234,6 +234,7 @@ def smooth_gradient_print(text, start_color, end_color):
 def center_text(text, width=None):
     return text.center(width or get_terminal_width())
 
+                                                                                                                                                                                                                                                                                                                         #                                                                                                                         --  PLEASE DO NOT REMOVE THIS LINE  --  OFFICIAL REPO: https://github.com/RPxGoon/3TH1C4L-MultiTool  --  DO NOT CHANGE CODE AND BRAND AS YOUR OWN WITHOUT GIVING CREDITS TO ORIGINAL  --  OFFICIAL REPO: https://github.com/RPxGoon/3TH1C4L-MultiTool  --  PLEASE DO NOT REMOVE THIS LINE  --
 ASCII_LOGO = r"""
 /* ++------------------------------------------------------------------++ */
 /* ++------------------------------------------------------------------++ */
@@ -249,7 +250,6 @@ ASCII_LOGO = r"""
 /* ||                           [RPxGoon]░                             || */
 /* ++------------------------------------------------------------------++ */
 /* ++------------------------------------------------------------------++ */
-                                                                                                                                                                                                                                                                                                                         #                                                                                                                         --  PLEASE DO NOT REMOVE THIS LINE  --  OFFICIAL REPO: https://github.com/RPxGoon/3TH1C4L-MultiTool  --  DO NOT CHANGE CODE AND BRAND AS YOUR OWN WITHOUT GIVING CREDITS TO ORIGINAL  --  OFFICIAL REPO: https://github.com/RPxGoon/3TH1C4L-MultiTool  --  PLEASE DO NOT REMOVE THIS LINE  --
 Simple 'CLI' Python Multi-Tool
 [https://github.com/RPxGoon/3TH1C4L-MultiTool]
 """
@@ -275,11 +275,16 @@ def print_menu(page=1):
         print(Fore.MAGENTA + "  NETWORK SCANNERS".center(box_border_length) + "        OSINT".center(box_border_length) + "           OTHER".center(box_border_length))
         print(Fore.MAGENTA + "╙" + "─" * box_border_length + "╜" + "╙" + "─" * box_border_length + "╜" + "╙" + "─" * box_border_length + "╜")
 
-        print(f"{Fore.RED}├─ [{Fore.MAGENTA}01{Fore.RED}] Show My IP".ljust(section_width) + f"{Fore.RED}               ├─ [{Fore.MAGENTA}06{Fore.RED}] Username Tracker".center(section_width) + f"{Fore.RED}                ├─ [{Fore.MAGENTA}11{Fore.RED}] Password Generator".rjust(section_width))
-        print(f"{Fore.RED}├─ [{Fore.MAGENTA}02{Fore.RED}] IP Scanner".ljust(section_width) + f"{Fore.RED}               ├─ [{Fore.MAGENTA}07{Fore.RED}] Coming Soon...".center(section_width) + f"{Fore.RED}                  ├─ [{Fore.MAGENTA}12{Fore.RED}] Coming Soon...".rjust(section_width))
-        print(f"{Fore.RED}├─ [{Fore.MAGENTA}03{Fore.RED}] IP Pinger".ljust(section_width) + f"{Fore.RED}               ├─ [{Fore.MAGENTA}08{Fore.RED}] Coming Soon...".center(section_width) + f"{Fore.RED}                  ├─ [{Fore.MAGENTA}13{Fore.RED}] Coming Soon...".rjust(section_width))
-        print(f"{Fore.RED}├─ [{Fore.MAGENTA}04{Fore.RED}] IP Port Scanner".ljust(section_width) + f"{Fore.RED}               ├─ [{Fore.MAGENTA}09{Fore.RED}] Coming Soon...".center(section_width) + f"{Fore.RED}                  ├─ [{Fore.MAGENTA}14{Fore.RED}] Coming Soon...".rjust(section_width))
-        print(f"{Fore.RED}├─ [{Fore.MAGENTA}05{Fore.RED}] Website Info Scanner".ljust(section_width) + f"{Fore.RED}            ├─ [{Fore.MAGENTA}10{Fore.RED}] Coming Soon...".center(section_width) + f"{Fore.RED}                  ├─ [{Fore.MAGENTA}15{Fore.RED}] Coming Soon...".rjust(section_width))
+        # Calculate padding to center items under headers
+        col1_padding = (section_width - len("├─ [01] Show My IP")) // 2
+        col2_padding = (section_width - len("├─ [06] Username Tracker")) // 2
+        col3_padding = (section_width - len("├─ [11] Password Generator")) // 2
+        
+        print(f"{' ' * col1_padding}{Fore.RED}├─ [{Fore.MAGENTA}01{Fore.RED}] Show My IP{' ' * (section_width - col1_padding - len('├─ [01] Show My IP'))}{' ' * col2_padding}{Fore.RED}├─ [{Fore.MAGENTA}06{Fore.RED}] Username Tracker{' ' * (section_width - col2_padding - len('├─ [06] Username Tracker'))}{' ' * col3_padding}{Fore.RED}├─ [{Fore.MAGENTA}11{Fore.RED}] Password Generator")
+        print(f"{' ' * col1_padding}{Fore.RED}├─ [{Fore.MAGENTA}02{Fore.RED}] IP Scanner{' ' * (section_width - col1_padding - len('├─ [02] IP Scanner'))}{' ' * col2_padding}{Fore.RED}├─ [{Fore.MAGENTA}07{Fore.RED}] Coming Soon...{' ' * (section_width - col2_padding - len('├─ [07] Coming Soon...'))}{' ' * col3_padding}{Fore.RED}├─ [{Fore.MAGENTA}12{Fore.RED}] Coming Soon...")
+        print(f"{' ' * col1_padding}{Fore.RED}├─ [{Fore.MAGENTA}03{Fore.RED}] IP Pinger{' ' * (section_width - col1_padding - len('├─ [03] IP Pinger'))}{' ' * col2_padding}{Fore.RED}├─ [{Fore.MAGENTA}08{Fore.RED}] Coming Soon...{' ' * (section_width - col2_padding - len('├─ [08] Coming Soon...'))}{' ' * col3_padding}{Fore.RED}├─ [{Fore.MAGENTA}13{Fore.RED}] Coming Soon...")
+        print(f"{' ' * col1_padding}{Fore.RED}├─ [{Fore.MAGENTA}04{Fore.RED}] IP Port Scanner{' ' * (section_width - col1_padding - len('├─ [04] IP Port Scanner'))}{' ' * col2_padding}{Fore.RED}├─ [{Fore.MAGENTA}09{Fore.RED}] Coming Soon...{' ' * (section_width - col2_padding - len('├─ [09] Coming Soon...'))}{' ' * col3_padding}{Fore.RED}├─ [{Fore.MAGENTA}14{Fore.RED}] Coming Soon...")
+        print(f"{' ' * col1_padding}{Fore.RED}├─ [{Fore.MAGENTA}05{Fore.RED}] Website Info Scanner{' ' * (section_width - col1_padding - len('├─ [05] Website Info Scanner'))}{' ' * col2_padding}{Fore.RED}├─ [{Fore.MAGENTA}10{Fore.RED}] Coming Soon...{' ' * (section_width - col2_padding - len('├─ [10] Coming Soon...'))}{' ' * col3_padding}{Fore.RED}├─ [{Fore.MAGENTA}15{Fore.RED}] Coming Soon...")
 
     elif page == 2:
         section_width = width // 3
@@ -288,11 +293,16 @@ def print_menu(page=1):
         print(Fore.MAGENTA + " " * ((width - len("DISCORD TOOLS")) // 2) + "DISCORD TOOLS")
         print(Fore.MAGENTA + "╙" + "─" * (width - 2) + "╜")
 
-        print(f"{Fore.RED}├─ [{Fore.MAGENTA}16{Fore.RED}] Discord Server Info".ljust(section_width) + f"{Fore.RED}             ├─ [{Fore.MAGENTA}21{Fore.RED}] Discord Webhook Delete".center(section_width) + f"{Fore.RED}          ├─ [{Fore.MAGENTA}26{Fore.RED}] Discord Token Info".rjust(section_width))
-        print(f"{Fore.RED}├─ [{Fore.MAGENTA}17{Fore.RED}] Discord Nitro Generator".ljust(section_width) + f"{Fore.RED}         ├─ [{Fore.MAGENTA}22{Fore.RED}] Discord Webhook Spammer".center(section_width) + f"{Fore.RED}         ├─ [{Fore.MAGENTA}27{Fore.RED}] Discord Token Delete DM".rjust(section_width))
-        print(f"{Fore.RED}├─ [{Fore.MAGENTA}18{Fore.RED}] Coming Soon...".ljust(section_width) + f"{Fore.RED}               ├─ [{Fore.MAGENTA}23{Fore.RED}] Discord Webhook Info".center(section_width) + f"{Fore.RED}            ├─ [{Fore.MAGENTA}28{Fore.RED}] Discord Token Friend Blocker".rjust(section_width))
-        print(f"{Fore.RED}├─ [{Fore.MAGENTA}19{Fore.RED}] Coming Soon...".ljust(section_width) + f"{Fore.RED}               ├─ [{Fore.MAGENTA}24{Fore.RED}] Coming Soon...".center(section_width) + f"{Fore.RED}                  ├─ [{Fore.MAGENTA}29{Fore.RED}] Coming Soon...".rjust(section_width))
-        print(f"{Fore.RED}├─ [{Fore.MAGENTA}20{Fore.RED}] Coming Soon...".ljust(section_width) + f"{Fore.RED}               ├─ [{Fore.MAGENTA}25{Fore.RED}] Coming Soon...".center(section_width) + f"{Fore.RED}                  ├─ [{Fore.MAGENTA}30{Fore.RED}] Coming Soon...".rjust(section_width))
+        # Calculate padding to center items under the single header
+        col1_padding = (section_width - len("├─ [16] Discord Server Info")) // 2
+        col2_padding = (section_width - len("├─ [21] Discord Webhook Delete")) // 2
+        col3_padding = (section_width - len("├─ [26] Discord Token Info")) // 2
+        
+        print(f"{' ' * col1_padding}{Fore.RED}├─ [{Fore.MAGENTA}16{Fore.RED}] Discord Server Info{' ' * (section_width - col1_padding - len('├─ [16] Discord Server Info'))}{' ' * col2_padding}{Fore.RED}├─ [{Fore.MAGENTA}21{Fore.RED}] Discord Webhook Delete{' ' * (section_width - col2_padding - len('├─ [21] Discord Webhook Delete'))}{' ' * col3_padding}{Fore.RED}├─ [{Fore.MAGENTA}26{Fore.RED}] Discord Token Info")
+        print(f"{' ' * col1_padding}{Fore.RED}├─ [{Fore.MAGENTA}17{Fore.RED}] Discord Nitro Generator{' ' * (section_width - col1_padding - len('├─ [17] Discord Nitro Generator'))}{' ' * col2_padding}{Fore.RED}├─ [{Fore.MAGENTA}22{Fore.RED}] Discord Webhook Spammer{' ' * (section_width - col2_padding - len('├─ [22] Discord Webhook Spammer'))}{' ' * col3_padding}{Fore.RED}├─ [{Fore.MAGENTA}27{Fore.RED}] Discord Token Delete DM")
+        print(f"{' ' * col1_padding}{Fore.RED}├─ [{Fore.MAGENTA}18{Fore.RED}] Coming Soon...{' ' * (section_width - col1_padding - len('├─ [18] Coming Soon...'))}{' ' * col2_padding}{Fore.RED}├─ [{Fore.MAGENTA}23{Fore.RED}] Discord Webhook Info{' ' * (section_width - col2_padding - len('├─ [23] Discord Webhook Info'))}{' ' * col3_padding}{Fore.RED}├─ [{Fore.MAGENTA}28{Fore.RED}] Discord Token Friend Blocker")
+        print(f"{' ' * col1_padding}{Fore.RED}├─ [{Fore.MAGENTA}19{Fore.RED}] Coming Soon...{' ' * (section_width - col1_padding - len('├─ [19] Coming Soon...'))}{' ' * col2_padding}{Fore.RED}├─ [{Fore.MAGENTA}24{Fore.RED}] Coming Soon...{' ' * (section_width - col2_padding - len('├─ [24] Coming Soon...'))}{' ' * col3_padding}{Fore.RED}├─ [{Fore.MAGENTA}29{Fore.RED}] Coming Soon...")
+        print(f"{' ' * col1_padding}{Fore.RED}├─ [{Fore.MAGENTA}20{Fore.RED}] Coming Soon...{' ' * (section_width - col1_padding - len('├─ [20] Coming Soon...'))}{' ' * col2_padding}{Fore.RED}├─ [{Fore.MAGENTA}25{Fore.RED}] Coming Soon...{' ' * (section_width - col2_padding - len('├─ [25] Coming Soon...'))}{' ' * col3_padding}{Fore.RED}├─ [{Fore.MAGENTA}30{Fore.RED}] Coming Soon...")
 
     print(f"{''.rjust((126))}{Fore.RED}                                                                          {Fore.RED}├─ [{Fore.MAGENTA}N{Fore.RED}] Next | [{Fore.MAGENTA}B{Fore.RED}] Back | [{Fore.MAGENTA}E{Fore.RED}] Exit".rjust(126))
     print()
