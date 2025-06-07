@@ -14,7 +14,7 @@ from packaging import version
 import customtkinter as ctk
                                                                                                                                                                                                                                                                                                                          #                                                                                                                         --  PLEASE DO NOT REMOVE THIS LINE  --  OFFICIAL REPO: https://github.com/RPxGoon/3TH1C4L-MultiTool  --  DO NOT CHANGE CODE AND BRAND AS YOUR OWN WITHOUT GIVING CREDITS TO ORIGINAL  --  OFFICIAL REPO: https://github.com/RPxGoon/3TH1C4L-MultiTool  --  PLEASE DO NOT REMOVE THIS LINE  --
 
-CURRENT_VERSION = "1.0.6"
+CURRENT_VERSION = "1.0.5.2"
 GITHUB_REPO = "RPxGoon/3TH1C4L-MultiTool"
 GITHUB_API_URL = f"https://api.github.com/repos/{GITHUB_REPO}/releases/latest"
 
