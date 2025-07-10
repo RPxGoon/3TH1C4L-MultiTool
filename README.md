@@ -32,26 +32,29 @@
 
 ---
 
+## ✨ **Installation Guide**
+
+1. **Windows**  
+   _Simply double click 'setup.bat'._
+
+
+2. **Linux**  
+   _Run the following command (or manually run setup.sh):_
+   
+   `curl -sSL https://raw.githubusercontent.com/RPxGoon/3TH1C4L-MultiTool/main/setup.sh | bash`
+
+
+4. **MacOS**  
+   _Executables coming soon, for now you will need to manually instally python and run 'setup.py'._
+
+---
+
 ## ⚠️ **DISCLAIMER**  
 
 _This tool was developed for personal use and **educational** / **legal purposes** only.
 I am **NOT RESPONSIBLE** for any misuse of this tool._
 
 ---
-
-## ✨ **Installation Guide**
-
-1. **Extract the Zip**  
-   _If you downloaded from the releases, ensure the `.zip` file is properly extracted._
-
-2. **Run the Setup**  
-   _To continue, run either `setup.py` or `setup.bat` to check for Python and finish installing dependencies._
-
-3. **Launch the Tool**  
-   _After installation is complete, you can open the tool by running `3th1c4l.py` or `3th1c4l.bat` (if it doesn’t launch automatically)._
-
----
-
 
 ## ⭐ **Important Notes**
 
