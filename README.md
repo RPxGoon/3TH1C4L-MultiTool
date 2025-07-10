@@ -25,34 +25,34 @@
 
 - Developed 100% in Python
 - Fully Open Source & Free Forever
-- One Click Installation
 - Automatic Updates
-- Available on **Windows** & **Linux**
-- **NO REQUIREMENTS** - Installs Python if Not Installed _(Windows Only)_
+- Quick, Easy Installation
+- Made for **Windows** & **Linux**
+- **NO REQUIREMENTS** - Installs Python & Packages Automatically _(Windows & Linux Only)_
 
 ---
 
 ## ✨ **Installation Guide**
 
 1. **Windows**  
-   _Simply double click 'setup.bat'._
+   _Simply run 'setup.bat'._
 
 
 2. **Linux**  
-   _Run the following command (or manually run setup.sh):_
+   _Paste the following command into terminal (or just run 'setup.sh'):_
    
    `curl -sSL https://raw.githubusercontent.com/RPxGoon/3TH1C4L-MultiTool/main/setup.sh | bash`
 
 
-4. **MacOS**  
-   _Executables coming soon, for now you will need to manually instally python and run 'setup.py'._
+4. **MacOS/Other**  
+   _Executables coming soon... for now you will need to manually install python and run 'setup.py'._
 
 ---
 
 ## ⚠️ **DISCLAIMER**  
 
 _This tool was developed for personal use and **educational** / **legal purposes** only.
-I am **NOT RESPONSIBLE** for any misuse of this tool._
+I am **NOT RESPONSIBLE** for any misuse / abuse of this tool._
 
 ---
 
@@ -60,7 +60,7 @@ I am **NOT RESPONSIBLE** for any misuse of this tool._
 
 - **DO NOT** Copy and/or Re-Sell or Re-Publish This Tool as Your Own; It’s Not Even Worth Copying 😎
 - This project is actively being updated, ideally weekly ; Certain features may not work as intended
-- If you'd like to request a feature or report an issue/bug, please join the support server
+- If you'd like to request a feature or report an issue/bug, please join the discord server
 
 
 
