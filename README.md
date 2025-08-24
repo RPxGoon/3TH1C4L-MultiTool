@@ -22,13 +22,15 @@
 
 </p>
 
+## 🔧 About
 
+- 'CLI' Multi-tool
+- Quick, Easy Installation
+- Fully Automatic Updates
 - Developed 100% in Python
 - Fully Open Source & Free Forever
-- Automatic Updates
-- Quick, Easy Installation
-- Made for **Windows** & **Linux**
-- **NO REQUIREMENTS** - Installs Python & Packages Automatically _(Windows & Linux Only)_
+- Made for **Windows** & **Linux** (although MacOS is supported)
+- **NO REQUIREMENTS** - Installs Python & Dependencies Automatically _(Windows & Linux Only)_
 
 ---
 
@@ -46,6 +48,37 @@
 
 4. **MacOS/Other**  
    _Executables coming soon... for now you will need to manually install python and run 'setup.py'._
+
+---
+
+## 💎 Features
+
+
+### 🌐 Network Scanners
+- Show My IP
+- IP Scanner
+- IP Pinger
+- Port Scanner
+- Website Info Scanner
+
+### 🕵️ OSINT
+- Username Tracker  
+*(More OSINT tools coming soon...)*
+
+### 💻 Other Utilities
+- Password Generator  
+*(More utilities coming soon...)*
+
+### 🤖 Discord Tools
+- Discord Server Info
+- Discord Nitro Generator
+- Discord Webhook Delete
+- Discord Webhook Spammer
+- Discord Webhook Info
+- Discord Token Info
+- Discord Token Delete DM
+- Discord Token Friend Blocker  
+*(More Discord tools coming soon...)*
 
 ---
 
