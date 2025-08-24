@@ -2,15 +2,15 @@ import string
 import json
 import requests
 import threading
-                                                                                                                                                                                                                                                                                                                         #                                                                                                                         --  PLEASE DO NOT REMOVE THIS LINE  --  OFFICIAL REPO: https://github.com/RPxGoon/3TH1C4L-MultiTool  --  DO NOT CHANGE CODE AND BRAND AS YOUR OWN WITHOUT GIVING CREDITS TO ORIGINAL  --  OFFICIAL REPO: https://github.com/RPxGoon/3TH1C4L-MultiTool  --  PLEASE DO NOT REMOVE THIS LINE  --
+import random
 
+# Color codes for terminal output
 RED = '\033[91m'
 GREEN = '\033[92m'
 YELLOW = '\033[93m'
 BLUE = '\033[94m'
 WHITE = '\033[97m'
 RESET = '\033[0m'
-
 
 INFO = f"{BLUE}[INFO]{RESET}"
 SUCCESS = f"{GREEN}[+]{RESET}"
@@ -20,7 +20,6 @@ VALID = f"{GREEN}[VALID]{RESET}"
 
 def error_handler(error_message):
     print(f"{ERROR} {error_message}")
-
     print()
 
 def print_title(title):
@@ -31,7 +30,7 @@ def send_webhook(webhook_url, url_nitro, username_webhook, avatar_webhook, color
         'embeds': [{
             'title': 'Nitro Valid!',
             'description': f"**Nitro:**\n```{url_nitro}```",
-            'color': color_webhook,
+            'color': int(color_webhook, 16),  # Convert hex to int
             'footer': {
                 "text": username_webhook,
                 "icon_url": avatar_webhook,
@@ -64,7 +63,6 @@ def nitro_check(webhook_url, webhook_enabled, username_webhook, avatar_webhook, 
     except requests.RequestException as e:
         error_handler(f"Error checking Nitro code: {e}")
 
-
 def run():
     print_title("Discord Nitro Generator")
 
@@ -74,26 +72,23 @@ def run():
     if webhook_enabled:
         webhook_url = input(f"{INFO} Enter Webhook URL: ")
 
-    
     username_webhook = input(f"{INFO} Webhook Username (default: Nitro Bot): ") or "Nitro Bot"
     avatar_webhook = input(f"{INFO} Webhook Avatar URL (optional): ") or ""
-    color_webhook = 0x00FF00  
+    color_webhook = "00FF00"  # Hexadecimal string
 
-   
     try:
         threads_number = int(input(f"{INFO} Enter the number of threads: "))
     except ValueError:
         error_handler("Invalid number of threads. Please enter a valid number.")
         return
 
-    
     def create_threads():
         threads = []
         for _ in range(threads_number):
             t = threading.Thread(target=nitro_check, args=(webhook_url, webhook_enabled, username_webhook, avatar_webhook, color_webhook))
             t.start()
             threads.append(t)
-        
+
         for thread in threads:
             thread.join()
 
@@ -102,5 +97,3 @@ def run():
             create_threads()
     except KeyboardInterrupt:
         print(f"\n{INFO} Nitro generator stopped by user.")
-
-                                                                                                                                                                                                                                                                                                                         #                                                                                                                         --  PLEASE DO NOT REMOVE THIS LINE  --  OFFICIAL REPO: https://github.com/RPxGoon/3TH1C4L-MultiTool  --  DO NOT CHANGE CODE AND BRAND AS YOUR OWN WITHOUT GIVING CREDITS TO ORIGINAL  --  OFFICIAL REPO: https://github.com/RPxGoon/3TH1C4L-MultiTool  --  PLEASE DO NOT REMOVE THIS LINE  --
