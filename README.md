@@ -92,7 +92,7 @@ I am **NOT RESPONSIBLE** for any misuse / abuse of this tool._
 ## ⭐ **Important Notes**
 
 - **DO NOT** Copy and/or Re-Sell or Re-Publish This Tool as Your Own; It’s Not Even Worth Copying 😎
-- *This project is not actively getting the love i wanted to put into it do to my time being elseware, if your seriosu snd would like to help wirh this project (or even become co-owner) please feel free to message me here or on discord at: d1scordsucks* ; Certain features may not work as intended
+- *This project is not actively getting the love i wanted to put into it do to my time being elseware, if your seriosu snd would like to help wirh this project (or even become co-owner) please feel free to message me here or on discord at: **d1scordsucks** * ; Certain features may not work as intended
 - If you'd like to request a feature or report an issue/bug, please join the discord server
 
 
