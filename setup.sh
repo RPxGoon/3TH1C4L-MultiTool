@@ -63,32 +63,50 @@ fi
 
 echo -e "\e[32m[✓] Detected: $PRETTY_NAME\e[0m"
 
-# Check if Python 3 is installed
-echo -e "\e[34m[*] Checking for Python 3...\e[0m"
+# Check if Python 3 and Tkinter are installed
+echo -e "\e[34m[*] Checking for Python 3 and Tkinter...\e[0m"
+NEED_INSTALL=false
+
 if command -v python3 &> /dev/null; then
     PYTHON_VERSION=$(python3 --version 2>&1 | cut -d' ' -f2)
-    echo -e "\e[32m[✓] Python 3 is installed (version $PYTHON_VERSION)\e[0m"
     PYTHON_CMD="python3"
+    
+    # Check for Tkinter
+    if $PYTHON_CMD -c "import tkinter" &> /dev/null; then
+        echo -e "\e[32m[✓] Python 3 ($PYTHON_VERSION) and Tkinter are installed\e[0m"
+    else
+        echo -e "\e[33m[!] Python 3 found ($PYTHON_VERSION) but Tkinter is missing\e[0m"
+        NEED_INSTALL=true
+    fi
 elif command -v python &> /dev/null; then
     PYTHON_VERSION=$(python --version 2>&1 | cut -d' ' -f2)
     if [[ $PYTHON_VERSION == 3* ]]; then
-        echo -e "\e[32m[✓] Python 3 is installed (version $PYTHON_VERSION)\e[0m"
         PYTHON_CMD="python"
+        
+        # Check for Tkinter
+        if $PYTHON_CMD -c "import tkinter" &> /dev/null; then
+             echo -e "\e[32m[✓] Python 3 ($PYTHON_VERSION) and Tkinter are installed\e[0m"
+        else
+             echo -e "\e[33m[!] Python 3 found ($PYTHON_VERSION) but Tkinter is missing\e[0m"
+             NEED_INSTALL=true
+        fi
     else
         echo -e "\e[33m[!] Python 2 detected, need to install Python 3\e[0m"
+        NEED_INSTALL=true
         PYTHON_CMD="python3"
     fi
 else
     echo -e "\e[33m[!] Python 3 not found, installing...\e[0m"
+    NEED_INSTALL=true
     PYTHON_CMD="python3"
 fi
 
-# Install Python 3 if needed
-if ! command -v $PYTHON_CMD &> /dev/null; then
-    echo -e "\e[34m[*] Installing Python 3...\e[0m"
+# Install Python 3 and/or Tkinter if needed
+if [ "$NEED_INSTALL" = true ]; then
+    echo -e "\e[34m[*] Installing Python 3 and dependencies...\e[0m"
     
     case $DISTRO in
-        ubuntu|debian|linuxmint|pop|elementary|zorin|kali)
+        ubuntu|debian|linuxmint|pop|elementary|zorin|kali|parrot)
             sudo apt update && sudo apt install -y python3 python3-pip python3-venv python3-tk
             ;;
         fedora|rhel|centos|rocky|almalinux)
@@ -115,7 +133,7 @@ if ! command -v $PYTHON_CMD &> /dev/null; then
             ;;
         *)
             echo -e "\e[31m[!] Unsupported distribution: $DISTRO\e[0m"
-            echo -e "\e[33m[!] Please install Python 3 manually and run this script again\e[0m"
+            echo -e "\e[33m[!] Please install Python 3 and Tkinter manually and run this script again\e[0m"
             exit 1
             ;;
     esac
@@ -126,7 +144,12 @@ if ! command -v $PYTHON_CMD &> /dev/null; then
         exit 1
     fi
     
-    echo -e "\e[32m[✓] Python 3 installed successfully\e[0m"
+    if ! $PYTHON_CMD -c "import tkinter" &> /dev/null; then
+        echo -e "\e[31m[!] Tkinter installation failed!\e[0m"
+        exit 1
+    fi
+    
+    echo -e "\e[32m[✓] Python 3 and Tkinter installed successfully\e[0m"
 fi
 
 # Check if pip is available
@@ -182,14 +205,28 @@ python -m pip install -r requirements.txt
 if [ $? -eq 0 ]; then
     echo -e "\e[32m[✓] All requirements installed successfully!\e[0m"
     
-    # Launch the tool
-    echo -e "\e[34m[*] Launching 3TH1C4L MultiTool...\e[0m"
-    python 3th1c4l.py
+    # Create launcher script
+    echo -e "\e[34m[*] Creating launcher script...\e[0m"
+    cat > 3th1c4l.sh << 'EOF'
+#!/bin/bash
+cd "$(dirname "$0")"
+source .venv/bin/activate
+python 3th1c4l.py
+EOF
+    chmod +x 3th1c4l.sh
+    
+    # Launch the tool only if running interactively
+    if [ -t 0 ]; then
+        echo -e "\e[34m[*] Launching 3TH1C4L MultiTool...\e[0m"
+        python 3th1c4l.py
+    else
+        echo -e "\e[33m[!] Non-interactive session detected. Skipping auto-launch.\e[0m"
+    fi
 else
     echo -e "\e[31m[!] Failed to install requirements\e[0m"
     exit 1
 fi
 
 echo -e "\e[32m[✓] Setup complete!\e[0m"
-echo -e "\e[34m[*] To run the tool again:\e[0m"
-echo -e "\e[34m  cd $(pwd) && source .venv/bin/activate && python 3th1c4l.py\e[0m"
+echo -e "\e[34m[*] To run the tool again, simply run:\e[0m"
+echo -e "\e[32m  ./3th1c4l.sh\e[0m"
