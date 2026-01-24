@@ -217,20 +217,17 @@ EOF
     
     echo -e "\e[32m[✓] Setup complete!\e[0m"
     echo -e "\e[34m[*] For future usage, you can simply run: \e[32m./3th1c4l.sh\e[0m"
+    echo
     
     # Attempt to reconnect to a TTY if stdin is a pipe (fix for curl | bash)
     if [ ! -t 0 ] && [ -e /dev/tty ]; then
         exec < /dev/tty
     fi
 
-    # Launch the tool only if running interactively
-    if [ -t 0 ]; then
-        echo -e "\e[34m[*] Launching 3TH1C4L MultiTool...\e[0m"
-        sleep 2
-        python 3th1c4l.py
-    else
-        echo -e "\e[33m[!] Non-interactive session detected. Please run ./3th1c4l.sh manually to start.\e[0m"
-    fi
+    # Launch the tool
+    echo -e "\e[34m[*] Launching 3TH1C4L MultiTool...\e[0m"
+    sleep 1
+    python 3th1c4l.py
 else
     echo -e "\e[31m[!] Failed to install requirements\e[0m"
     exit 1
