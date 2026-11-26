@@ -1,0 +1,13 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# Update/temp artifacts created at runtime
+update.zip
+update_temp/
+
+# User config (lives in ~/.3th1c4l but ignore any local copy too)
+config.json

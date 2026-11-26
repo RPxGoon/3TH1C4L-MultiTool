@@ -28,6 +28,8 @@
 - Quick, Easy Installation
 - Fully Automatic Updates
 - Developed 100% in Python
+- Clean, auto-aligned menu with a built-in **Settings** panel (themes, tips, toggles)
+- **6 colour themes** - Ethical, Matrix, Blood Moon, Ocean, Cyberpunk, Monochrome
 - Fully Open Source & Free Forever
 - Made for **Windows** & **Linux** (although MacOS is supported)
 - **NO REQUIREMENTS** - Installs Python & Dependencies Automatically _(Windows & Linux Only)_
@@ -60,14 +62,21 @@
 - IP Pinger
 - Port Scanner
 - Website Info Scanner
+- DNS Lookup
+- Reverse DNS Lookup
+- HTTP Header Grabber _(with security-header audit)_
 
 ### 🕵️ OSINT
-- Username Tracker  
-*(More OSINT tools coming soon...)*
+- Username Tracker
+- WHOIS Lookup
+- MAC Vendor Lookup
 
-### 💻 Other Utilities
-- Password Generator  
-*(More utilities coming soon...)*
+### 💻 Utilities
+- Password Generator
+- Password Strength Checker
+- Hash Generator _(MD5 → SHA-512)_
+- Hash Identifier
+- Base64 Encoder / Decoder
 
 ### 🤖 Discord Tools
 - Discord Server Info
@@ -75,10 +84,16 @@
 - Discord Webhook Delete
 - Discord Webhook Spammer
 - Discord Webhook Info
+- Discord Webhook Sender
 - Discord Token Info
 - Discord Token Delete DM
-- Discord Token Friend Blocker  
-*(More Discord tools coming soon...)*
+- Discord Token Friend Blocker
+
+### ⚙️ Settings
+- Switch between 6 colour themes
+- Toggle rotating tips, loading animations and screen-clearing
+- Enable / disable the startup update check
+- Preferences saved to `~/.3th1c4l/config.json`
 
 ---
 
